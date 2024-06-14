@@ -1,0 +1,149 @@
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\JetEazy.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\JetEazy.pdb
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\Eazy Project Interface.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\HslCommunication.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\JetEazy.QUtility.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\MVSDK.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\opencv_vbase.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\bin\Debug\Eazy Project Interface.pdb
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.csproj.CopyComplete
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\MVSDK.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.CopyComplete
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\MVSDK.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.csproj.CopyComplete
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.dll
+D:\AUTOMATION\Traveller106\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JetEazy\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Traveller106\JetEazy\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\MVSDK.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.csproj.CopyComplete
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\Utility\JetEazy\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\MVSDK.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.CopyComplete
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.xml
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\Common.VsHandleMotorUI.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\MVSDK.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\Newtonsoft.Json.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\DVPCameraCS64.xml
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.AccountForm.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.LoginForm.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.FormSpace.VsMessageBox.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.Properties.Resources.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.UISpace.EssUI.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\Common.VsHandleMotorUI.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\Common.VsTouchMotorUI.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JetEazy\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JetEazy\obj\Debug\JetEazy.csproj.Up2Date

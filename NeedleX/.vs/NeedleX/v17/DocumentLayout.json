@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|d:\\automation\\eazy needle\\eazy needle\\needlexs\\needlex\\formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\globalspace\\universal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:globalspace\\universal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\globalspace\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:globalspace\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\formspace\\frmrecipe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:formspace\\frmrecipe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\uispace\\mainspace\\needlemainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:uispace\\mainspace\\needlemainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A24458C1-B3AC-462A-8B42-DAFD1D420E19}|..\\Utility\\JetEazy\\JetEazy.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\utility\\jeteazy\\controlspace\\motionspace\\plcmotionclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A24458C1-B3AC-462A-8B42-DAFD1D420E19}|..\\Utility\\JetEazy\\JetEazy.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\utility\\jeteazy\\controlspace\\plcspace\\fatekclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A24458C1-B3AC-462A-8B42-DAFD1D420E19}|..\\Utility\\JetEazy\\JetEazy.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\utility\\jeteazy\\controlspace\\comclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NeedleMainUI.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\UISpace\\MainSpace\\NeedleMainUI.cs",
+              "RelativeDocumentMoniker": "UISpace\\MainSpace\\NeedleMainUI.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\NeedleXS\\NeedleX\\UISpace\\MainSpace\\NeedleMainUI.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "..\\..\\..\\NeedleXS\\NeedleX\\UISpace\\MainSpace\\NeedleMainUI.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-06-13T03:09:53.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAutoFocus.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs",
+              "RelativeDocumentMoniker": "FormSpace\\frmAutoFocus.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "FormSpace\\frmAutoFocus.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.115Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FatekClass.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\PLCSpace\\FatekClass.cs",
+              "RelativeDocumentMoniker": "..\\Utility\\JetEazy\\ControlSpace\\PLCSpace\\FatekClass.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\PLCSpace\\FatekClass.cs",
+              "RelativeToolTip": "..\\Utility\\JetEazy\\ControlSpace\\PLCSpace\\FatekClass.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "COMClass.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\COMClass.cs",
+              "RelativeDocumentMoniker": "..\\Utility\\JetEazy\\ControlSpace\\COMClass.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\COMClass.cs",
+              "RelativeToolTip": "..\\Utility\\JetEazy\\ControlSpace\\COMClass.cs",
+              "ViewState": "AQIAAIcBAAAAAAAAAAAIwHoBAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAutoFocus.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs",
+              "RelativeDocumentMoniker": "FormSpace\\frmAutoFocus.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs",
+              "RelativeToolTip": "FormSpace\\frmAutoFocus.cs",
+              "ViewState": "AQIAAH0CAAAAAAAAAAAiwJgCAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmRecipe.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmRecipe.cs",
+              "RelativeDocumentMoniker": "FormSpace\\frmRecipe.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmRecipe.cs",
+              "RelativeToolTip": "FormSpace\\frmRecipe.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Universal.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\Universal.cs",
+              "RelativeDocumentMoniker": "GlobalSpace\\Universal.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\Universal.cs",
+              "RelativeToolTip": "GlobalSpace\\Universal.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAADwvx8AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "INI.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\INI.cs",
+              "RelativeDocumentMoniker": "GlobalSpace\\INI.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\INI.cs",
+              "RelativeToolTip": "GlobalSpace\\INI.cs",
+              "ViewState": "AQIAAMgAAAAAAAAAAAAQwNgAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PLCMotionClass.cs",
+              "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\MotionSpace\\PLCMotionClass.cs",
+              "RelativeDocumentMoniker": "..\\Utility\\JetEazy\\ControlSpace\\MotionSpace\\PLCMotionClass.cs",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\Utility\\JetEazy\\ControlSpace\\MotionSpace\\PLCMotionClass.cs",
+              "RelativeToolTip": "..\\Utility\\JetEazy\\ControlSpace\\MotionSpace\\PLCMotionClass.cs",
+              "ViewState": "AQIAAP4AAAAAAAAAAAAswBMBAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T03:09:53.206Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

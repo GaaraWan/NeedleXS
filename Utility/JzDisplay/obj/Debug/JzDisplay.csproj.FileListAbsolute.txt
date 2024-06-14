@@ -1,0 +1,131 @@
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\JzDisplay.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\JetEazy.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\HslCommunication.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\Eazy Project Interface.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\JetEazy.pdb
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\bin\Debug\Eazy Project Interface.pdb
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.csproj.CopyComplete
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.dll
+D:\06GithubSrc\124station\EzGlueDispenser124\Eazy Project III\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.CopyComplete
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\JzDisplay.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.csproj.CopyComplete
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.dll
+D:\AUTOMATION\Traveller106\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Traveller\Traveller106\JzDisplay\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Traveller106\JzDisplay\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.CopyComplete
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\Utility\JzDisplay\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.CopyComplete
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.pdb
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.xml
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\MoveGraphLibrary.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\ProjectForAllinone.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\MvCameraControl.Net.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\NModbus4.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\HslCommunication.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\ThridLibray.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.QUtility.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\OpenCvSharp.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\CLIDelegate.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\JetEazy.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\DVPCameraCS64.xml
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\NModbus4.xml
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.AssemblyReference.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.UISpace.DispUI.resources
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.GenerateResource.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.CoreCompileInputs.cache
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.pdb
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\NeedleXS\Utility\JzDisplay\bin\Debug\opencv_vbase.dll
+D:\AUTOMATION\Eazy Needle\Eazy Needle\NeedleXS\Utility\JzDisplay\obj\Debug\JzDisplay.csproj.Up2Date

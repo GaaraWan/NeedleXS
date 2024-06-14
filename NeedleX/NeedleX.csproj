@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{793D00FE-C28A-48B8-A1C2-460564238A0D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NeedleX</RootNamespace>
+    <AssemblyName>NeedleX</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\Utility\DLLS\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\Utility\DLLS\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\Utility\DLLS\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="MoveGraphLibrary">
+      <HintPath>..\Utility\DLLS\MoveGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>packages\OpenCvSharp4.4.8.0.20230708\lib\net48\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>packages\OpenCvSharp4.Extensions.4.8.0.20230708\lib\net48\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlSpace\IOSpace\GeoIOClass.cs" />
+    <Compile Include="ControlSpace\IOSpace\MainLSIOClass.cs" />
+    <Compile Include="ControlSpace\IOSpace\NeedleIOClass.cs" />
+    <Compile Include="ControlSpace\IOSpace\YzBaseIOClass.cs" />
+    <Compile Include="ControlSpace\MachineCollectionClass.cs" />
+    <Compile Include="ControlSpace\MachineSpace\GeoMachineClass.cs" />
+    <Compile Include="ControlSpace\MachineSpace\MainLSMachineClass.cs" />
+    <Compile Include="ControlSpace\MachineSpace\NeedleMachineClass.cs" />
+    <Compile Include="ControlSpace\MachineSpace\YzBaseMachineClass.cs" />
+    <Compile Include="Driver\Camera\CameraConfig.cs" />
+    <Compile Include="Driver\Keyence\GT2Class.cs" />
+    <Compile Include="FormSpace\BannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\BannerForm.designer.cs">
+      <DependentUpon>BannerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmAutoFocus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmAutoFocus.Designer.cs">
+      <DependentUpon>frmAutoFocus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmHandle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmHandle.Designer.cs">
+      <DependentUpon>frmHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmIO.Designer.cs">
+      <DependentUpon>frmIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmMotor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmMotor.Designer.cs">
+      <DependentUpon>frmMotor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmRecipe.Designer.cs">
+      <DependentUpon>frmRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\frmWaring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\frmWaring.Designer.cs">
+      <DependentUpon>frmWaring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpace\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpace\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSpace\Enums.cs" />
+    <Compile Include="GlobalSpace\INI.cs" />
+    <Compile Include="GlobalSpace\Universal.cs" />
+    <Compile Include="Model\CalcModeClass.cs" />
+    <Compile Include="Model\OpencvTools\CvTools.cs" />
+    <Compile Include="OPSpace\RecipeSpace\RecipeBaseClass.cs" />
+    <Compile Include="OPSpace\RecipeSpace\RecipeNeedleClass.cs" />
+    <Compile Include="OPSpace\RecipeSpace\RecipeTrayClass.cs" />
+    <Compile Include="OPSpace\ResultSpace\GeoResultClass.cs" />
+    <Compile Include="OPSpace\ResultSpace\JzBaseResultClass.cs" />
+    <Compile Include="ProcessSpace\AbsProcess.cs" />
+    <Compile Include="ProcessSpace\BaseProcess.cs" />
+    <Compile Include="ProcessSpace\BuzzerProcess.cs" />
+    <Compile Include="ProcessSpace\FocusProcess.cs" />
+    <Compile Include="ProcessSpace\MainDSLiveProcess.cs" />
+    <Compile Include="ProcessSpace\MainProcess.cs" />
+    <Compile Include="ProcessSpace\ResetProcess.cs" />
+    <Compile Include="ProcessSpace\StabilizeProcess.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UISpace\CtrlSpace\NeedleCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\CtrlSpace\NeedleCtrl.Designer.cs">
+      <DependentUpon>NeedleCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\CtrlUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\CtrlUI.Designer.cs">
+      <DependentUpon>CtrlUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\DataViewUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\DataViewUI.Designer.cs">
+      <DependentUpon>DataViewUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\IniUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\IniUI.Designer.cs">
+      <DependentUpon>IniUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\IOSpace\LSIOUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\IOSpace\LSIOUI.Designer.cs">
+      <DependentUpon>LSIOUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\IOSpace\LSItemClass.cs" />
+    <Compile Include="UISpace\LSDirUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\LSDirUI.Designer.cs">
+      <DependentUpon>LSDirUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\MainControlUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\MainControlUI.Designer.cs">
+      <DependentUpon>MainControlUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\MainSpace\NeedleMainUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\MainSpace\NeedleMainUI.Designer.cs">
+      <DependentUpon>NeedleMainUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\RcpUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\RcpUI.Designer.cs">
+      <DependentUpon>RcpUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\RunUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\RunUI.Designer.cs">
+      <DependentUpon>RunUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\UIMVC\Controler\CtlPosClass.cs" />
+    <Compile Include="UISpace\UIMVC\View\PosUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\UIMVC\View\PosUI.Designer.cs">
+      <DependentUpon>PosUI.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormSpace\BannerForm.resx">
+      <DependentUpon>BannerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmAutoFocus.resx">
+      <DependentUpon>frmAutoFocus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmHandle.resx">
+      <DependentUpon>frmHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmIO.resx">
+      <DependentUpon>frmIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmMotor.resx">
+      <DependentUpon>frmMotor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmRecipe.resx">
+      <DependentUpon>frmRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\frmWaring.resx">
+      <DependentUpon>frmWaring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpace\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UISpace\CtrlSpace\NeedleCtrl.resx">
+      <DependentUpon>NeedleCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\CtrlUI.resx">
+      <DependentUpon>CtrlUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\DataViewUI.resx">
+      <DependentUpon>DataViewUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\IniUI.resx">
+      <DependentUpon>IniUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\IOSpace\LSIOUI.resx">
+      <DependentUpon>LSIOUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\LSDirUI.resx">
+      <DependentUpon>LSDirUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\MainControlUI.resx">
+      <DependentUpon>MainControlUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\MainSpace\NeedleMainUI.resx">
+      <DependentUpon>NeedleMainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\RcpUI.resx">
+      <DependentUpon>RcpUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\RunUI.resx">
+      <DependentUpon>RunUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UISpace\UIMVC\View\PosUI.resx">
+      <DependentUpon>PosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\JetEazy\JetEazy.csproj">
+      <Project>{a24458c1-b3ac-462a-8b42-dafd1d420e19}</Project>
+      <Name>JetEazy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\JzDisplay\JzDisplay.csproj">
+      <Project>{cfb82d4a-7f2e-40f6-ab40-34c043fba2c9}</Project>
+      <Name>JzDisplay</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

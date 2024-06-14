@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|d:\\automation\\eazy needle\\eazy needle\\needlexs\\needlex\\formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\globalspace\\universal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:globalspace\\universal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|d:\\automation\\eazy needle\\eazy needle\\needlexs\\needlex\\formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|solutionrelative:formspace\\frmautofocus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{793D00FE-C28A-48B8-A1C2-460564238A0D}|NeedleX.csproj|D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\globalspace\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,7 +43,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,13 +98,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmAutoFocus.cs",
               "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs",
               "RelativeDocumentMoniker": "FormSpace\\frmAutoFocus.cs",
               "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\FormSpace\\frmAutoFocus.cs",
               "RelativeToolTip": "FormSpace\\frmAutoFocus.cs",
-              "ViewState": "AQIAAH0CAAAAAAAAAAAiwJgCAABjAAAA",
+              "ViewState": "AQIAAHcCAAAAAAAAAAAiwJgCAABjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T03:09:53.118Z",
               "EditorCaption": ""
@@ -123,15 +123,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Universal.cs",
               "DocumentMoniker": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\Universal.cs",
               "RelativeDocumentMoniker": "GlobalSpace\\Universal.cs",
-              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\Universal.cs",
-              "RelativeToolTip": "GlobalSpace\\Universal.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAADwvx8AAAA2AAAA",
+              "ToolTip": "D:\\AUTOMATION\\Eazy Needle\\Eazy Needle\\NeedleXS\\NeedleX\\GlobalSpace\\Universal.cs*",
+              "RelativeToolTip": "GlobalSpace\\Universal.cs*",
+              "ViewState": "AQIAAA8AAAAAAAAAAADwvxoAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T03:09:53.205Z"
+              "WhenOpened": "2024-06-13T03:09:53.205Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

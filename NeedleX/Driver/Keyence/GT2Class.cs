@@ -80,7 +80,10 @@ namespace NeedleX.Driver.Keyence
                     if (str.IndexOf(",+") > -1 || str.IndexOf(",-") > -1)
                     {
                         string[] strings = str.Split(',');
-                        ret = Convert.ToDouble(strings[3]);
+                        bool bOK = double.TryParse(strings[3], out ret);
+                        //ret = Convert.ToDouble(strings[3]);
+                        if (!bOK)
+                            ret = -9999;
                     }
                 }
 

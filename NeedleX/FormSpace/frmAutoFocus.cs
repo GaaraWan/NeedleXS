@@ -23,6 +23,7 @@ using NeedleX.Model;
 using OpenCvSharp.Flann;
 using System.IO.Ports;
 using NeedleX.Driver.Keyence;
+using AForge.Imaging.Filters;
 //using System.Web.UI.WebControls;
 
 namespace NeedleX.FormSpace
@@ -31,6 +32,7 @@ namespace NeedleX.FormSpace
     {
         int xTestCurrentIndex = 0;
         string xRootPath = "D:\\IMAGE";
+        Bitmap bmpLiving = new Bitmap(1, 1);
 
         Button btnGT2OpenClose;
         Button btnGT2Read;
@@ -151,7 +153,11 @@ namespace NeedleX.FormSpace
             if (!xAutoRecordDataProcess.IsOn)
                 xAutoRecordDataProcess.Start();
             else
+            {
                 xAutoRecordDataProcess.Stop();
+                xAutoRecordImageProcess.Stop();
+            }
+                
         }
 
         private void BtnGT2Read_Click(object sender, EventArgs e)
@@ -300,6 +306,24 @@ namespace NeedleX.FormSpace
                 lblCount.Text = $"ID:{xAutofocusProcess.ID} 测试进度{xTestCurrentIndex}/{INI.Instance.xStableTestCount} 收集到数目:{xCamFocus.myIndex} plc数目:{MACHINE.PLCIO.GetFlyPLCCount} 曝光:{xCamFocus.GetCurrentExpo().ToString("0.000")}";
                 btnFlyOpen.BackColor = (xCamFocus.FlyOpen ? Color.Red : Color.FromArgb(192, 255, 192));
 
+                if (!xCamFocus.FlyOpen)
+                {
+                    xCamFocus.Snap();
+                    using (Bitmap bmp = xCamFocus.GetSnap())
+                    {
+                        bmpLiving.Dispose();
+                        bmpLiving = new Bitmap(bmp);
+
+                        Graphics g = Graphics.FromImage(bmpLiving);
+                        g.DrawLine(new Pen(Color.Lime, 2), new PointF(bmpLiving.Width / 2, 0),
+                            new PointF(bmpLiving.Width / 2, bmpLiving.Height));
+                        g.DrawLine(new Pen(Color.Lime, 2), new PointF(0, bmpLiving.Height / 2),
+                           new PointF(bmpLiving.Width, bmpLiving.Height / 2));
+
+                        pictureBox1.Image = bmpLiving;
+                    }
+                }
+
             }
             _AutoStableTestTick();
             btnAutoTest.BackColor = (xAutofocusProcess.IsOn ? Color.Red : Color.FromArgb(192, 255, 192));
@@ -312,6 +336,7 @@ namespace NeedleX.FormSpace
 
             btnGT2ZStable.BackColor = (xAutoRecordDataProcess.IsOn ? Color.Red : Color.FromArgb(192, 255, 192));
             _AutoRecordDataTick();
+            _AutoRecordImageTick();
         }
 
         private bool IsSaveImage = false;
@@ -410,7 +435,7 @@ namespace NeedleX.FormSpace
                     case 10:
                         if (Process.IsTimeup)
                         {
-                            ZAXIS.GOSPEED = 30000;
+                            ZAXIS.GOSPEED = INI.Instance.xReturnSpeed;
                             ZAXIS.SetSpeed(JetEazy.ControlSpace.MotionSpace.SpeedTypeEnum.GO);
 
                             ZAXIS.Go(INI.Instance.xFoucsPOS1);
@@ -465,7 +490,7 @@ namespace NeedleX.FormSpace
                             if (IsInRange(_posCur, INI.Instance.xFoucsPOS2, 0.0055f) && ZAXIS.IsOK)
                             {
 
-                                ZAXIS.GOSPEED = 30000;
+                                ZAXIS.GOSPEED = INI.Instance.xReturnSpeed;
                                 ZAXIS.SetSpeed(JetEazy.ControlSpace.MotionSpace.SpeedTypeEnum.GO);
 
                                 ZAXIS.Go(INI.Instance.xFoucsPOS1);
@@ -642,6 +667,8 @@ namespace NeedleX.FormSpace
                         Process.NextDuriation = 100;
                         Process.ID = 10;
 
+                        xRootPath = $"D:\\IMAGE\\{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+                        xAutoRecordImageProcess.Start();
                         break;
 
                     case 10:
@@ -649,10 +676,10 @@ namespace NeedleX.FormSpace
                         {
                             if (_GT2Opening)
                             {
-                                //if (!Directory.Exists(xRootPath))
-                                //    Directory.CreateDirectory(xRootPath);
+                                if (!Directory.Exists(xRootPath))
+                                    Directory.CreateDirectory(xRootPath);
                                 ShowText();
-                                AppendData($"{DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss")},{SaveTextStr()}", $"D:\\CollectGT2RecordData.csv");
+                                AppendData($"{DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss")},{SaveTextStr()}", $"{xRootPath}\\CollectGT2RecordData.csv");
                             }
 
                             Process.NextDuriation = 500;
@@ -663,6 +690,56 @@ namespace NeedleX.FormSpace
                         if (Process.IsTimeup)
                         {
                             Process.NextDuriation = INI.Instance.xRecordDataOffsetTime * 60 * 1000;
+                            Process.ID = 10;
+                        }
+                        break;
+                }
+            }
+        }
+        ProcessClass xAutoRecordImageProcess = new ProcessClass();
+        void _AutoRecordImageTick()
+        {
+            ProcessClass Process = xAutoRecordImageProcess;
+
+            if (Process.IsOn)
+            {
+                switch (Process.ID)
+                {
+                    case 5:
+
+                        Process.TimeUnit = TimeUnitEnum.ms;
+                        Process.NextDuriation = 100;
+                        Process.ID = 10;
+
+                        //xRootPath = $"D:\\IMAGE\\{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+
+                        break;
+
+                    case 10:
+                        if (Process.IsTimeup)
+                        {
+                            if (_GT2Opening)
+                            {
+                                if (!Directory.Exists(xRootPath))
+                                    Directory.CreateDirectory(xRootPath);
+                                //ShowText();
+                                //AppendData($"{DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss")},{SaveTextStr()}", $"{xRootPath}\\CollectGT2RecordData.csv");
+                                xCamFocus.Snap();
+                                using (Bitmap bmpSaveImage = xCamFocus.GetSnap())
+                                {
+                                    string _saveImagePath = $"{xRootPath}\\{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.png";
+                                    bmpSaveImage.Save(_saveImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                                }
+                            }
+
+                            Process.NextDuriation = 500;
+                            Process.ID = 15;
+                        }
+                        break;
+                    case 15:
+                        if (Process.IsTimeup)
+                        {
+                            Process.NextDuriation = INI.Instance.xRecordImageOffsetTime * 60 * 1000;
                             Process.ID = 10;
                         }
                         break;

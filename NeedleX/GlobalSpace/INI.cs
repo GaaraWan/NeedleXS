@@ -156,12 +156,21 @@ namespace Traveller106
 
         [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
         //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
-        [DisplayName("A5.测试速度")]
+        [DisplayName("A5-1.对焦测试速度")]
         //[Browsable(false)]
         public double xFoucsSpeed
         {
             get { return INI.Instance.xFoucsSpeed; }
             set { INI.Instance.xFoucsSpeed = value; }
+        }
+        [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        [DisplayName("A5-2.回初始位置速度")]
+        //[Browsable(false)]
+        public double xReturnSpeed
+        {
+            get { return INI.Instance.xReturnSpeed; }
+            set { INI.Instance.xReturnSpeed = value; }
         }
 
         [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
@@ -214,12 +223,21 @@ namespace Traveller106
         }
         [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
         //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
-        [DisplayName("A10.收集数据间隔")]
+        [DisplayName("A9-1.收集数据间隔 单位(分钟)")]
         //[Browsable(false)]
         public int xRecordDataOffsetTime
         {
             get { return INI.Instance.xRecordDataOffsetTime; }
             set { INI.Instance.xRecordDataOffsetTime = value; }
+        }
+        [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        [DisplayName("A9-2.收集图片间隔 单位(分钟)")]
+        //[Browsable(false)]
+        public int xRecordImageOffsetTime
+        {
+            get { return INI.Instance.xRecordImageOffsetTime; }
+            set { INI.Instance.xRecordImageOffsetTime = value; }
         }
 
         [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
@@ -428,6 +446,18 @@ namespace Traveller106
         [Browsable(false)]
         public int xRecordDataOffsetTime { get; set; } = 10;
 
+        [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        //[DisplayName("目镜中心")]
+        [Browsable(false)]
+        public int xRecordImageOffsetTime { get; set; } = 30;
+
+        [CategoryAttribute(X1Cat8), DescriptionAttribute("")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        //[DisplayName("目镜中心")]
+        [Browsable(false)]
+        public double xReturnSpeed { get; set; } = 1000;
+
         #endregion
 
         public void Initial()
@@ -464,6 +494,8 @@ namespace Traveller106
             xStableInflate= int.Parse(ReadINIValue("Basic", "xStableInflate", xStableInflate.ToString(), INIFILE));
             xStableThresholdValue = int.Parse(ReadINIValue("Basic", "xStableThresholdValue", xStableThresholdValue.ToString(), INIFILE));
             xRecordDataOffsetTime = int.Parse(ReadINIValue("Basic", "xRecordDataOffsetTime", xRecordDataOffsetTime.ToString(), INIFILE));
+            xRecordImageOffsetTime = int.Parse(ReadINIValue("Basic", "xRecordImageOffsetTime", xRecordImageOffsetTime.ToString(), INIFILE));
+            xReturnSpeed = int.Parse(ReadINIValue("Basic", "xReturnSpeed", xReturnSpeed.ToString(), INIFILE));
 
             xIsCCDSIM = ReadINIValue("Basic", "xIsCCDSIM", (xIsCCDSIM ? "1" : "0"), INIFILE) == "1";
 
@@ -496,6 +528,8 @@ namespace Traveller106
             WriteINIValue("Basic", "xStableInflate", xStableInflate.ToString(), INIFILE);
             WriteINIValue("Basic", "xStableThresholdValue", xStableThresholdValue.ToString(), INIFILE);
             WriteINIValue("Basic", "xRecordDataOffsetTime", xRecordDataOffsetTime.ToString(), INIFILE);
+            WriteINIValue("Basic", "xRecordImageOffsetTime", xRecordImageOffsetTime.ToString(), INIFILE);
+            WriteINIValue("Basic", "xReturnSpeed", xReturnSpeed.ToString(), INIFILE);
 
             WriteINIValue("Basic", "xIsCCDSIM", (xIsCCDSIM ? "1" : "0"), INIFILE);
 

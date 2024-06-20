@@ -29,7 +29,7 @@ namespace Traveller106
         public static bool IsSilentMode = IsNoUseIO;     //抑制 Buzzer
         public static bool IsAutoLogin = true;     //抑制 Buzzer
 
-        public static string VersionDate = "2024/06/13";
+        public static string VersionDate = "2024/06/20";
 
         public static VersionEnum VERSION = VersionEnum.TRAVELLER;
         public static OptionEnum OPTION = OptionEnum.MAIN_NEEDLE;

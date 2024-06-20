@@ -32,10 +32,13 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.3")]
-[assembly: AssemblyFileVersion("1.0.0.3")]
+[assembly: AssemblyVersion("1.0.0.4")]
+[assembly: AssemblyFileVersion("1.0.0.4")]
 
 /*
+ * 20240620
+ * 1.数据重现性测试完成 整合代码
+ * 
  * 
  * 20240424
  * 1.算法1 全域 ContrastStretch->StdDev 最小值

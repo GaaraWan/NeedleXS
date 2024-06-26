@@ -234,12 +234,19 @@ namespace Common.RecipeSpace
         [Browsable(true)]
         public int TestCount { get; set; } = 30;
 
+        [CategoryAttribute(_Cat2), DescriptionAttribute("即测试抓图停留时间 延时一定时间再抓图 单位ms")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        [DisplayName("测试抓图停留时间")]
+        [Browsable(true)]
+        public int StayTimeMs { get; set; } = 300;
+
         public override void Load()
         {
             int i = 0;
 
             CamNumberNo = int.Parse(ReadINIValue("Basic Control", "CamNumberNo", CamNumberNo.ToString(), INIFILE));
             TestCount = int.Parse(ReadINIValue("Basic Control", "TestCount", TestCount.ToString(), INIFILE));
+            StayTimeMs = int.Parse(ReadINIValue("Basic Control", "StayTimeMs", StayTimeMs.ToString(), INIFILE));
 
             BaseHeightZ = double.Parse(ReadINIValue("Basic Control", "BaseHeightZ", BaseHeightZ.ToString(Format), INIFILE));
             FocusUpperAndLower = double.Parse(ReadINIValue("Basic Control", "FocusUpperAndLower", FocusUpperAndLower.ToString(Format), INIFILE));
@@ -307,6 +314,7 @@ namespace Common.RecipeSpace
         {
             WriteINIValue("Basic Control", "CamNumberNo", CamNumberNo.ToString(), INIFILE);
             WriteINIValue("Basic Control", "TestCount", TestCount.ToString(), INIFILE);
+            WriteINIValue("Basic Control", "StayTimeMs", StayTimeMs.ToString(), INIFILE);
             WriteINIValue("Basic Control", "BaseHeightZ", BaseHeightZ.ToString(Format), INIFILE);
             WriteINIValue("Basic Control", "FocusUpperAndLower", FocusUpperAndLower.ToString(Format), INIFILE);
             sExposureList = arrayToString(ExposureArray);

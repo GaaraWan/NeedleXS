@@ -738,8 +738,8 @@ namespace JetEazy.ControlSpace
                 if (CommandQueue.Count > 0)
                 {
                     LastCommad = CommandQueue.Dequeue();
-
-                    WriteCommand();
+                    if (LastCommad != null)
+                        WriteCommand();
                 }
                 else
                 {

@@ -27,6 +27,7 @@ namespace NeedleX.ProcessSpace
         /// 抓图次数
         /// </summary>
         int m_StepCount = 0;
+        int m_StayTimeMs = 300;
 
         NeedleXYZ m_CurrentXYZ = new NeedleXYZ();
 
@@ -70,7 +71,7 @@ namespace NeedleX.ProcessSpace
                     case 5:
 
                         Process.TimeUnit = TimeUnitEnum.ms;
-                        Process.NextDuriation = 100;
+                        Process.NextDuriation = 300;
                         Process.ID = 10;
 
                         GetCamera(RecipeNeedleClass.Instance.CamNumberNo).SetExposure(RecipeNeedleClass.Instance.GetCamExpo(RecipeNeedleClass.Instance.CamNumberNo));
@@ -85,6 +86,8 @@ namespace NeedleX.ProcessSpace
                         m_StepIndex = 0;
                         m_StepCount = RecipeNeedleClass.Instance.TestCount;
 
+                        m_StayTimeMs = RecipeNeedleClass.Instance.StayTimeMs;
+
                         break;
 
                     case 10:
@@ -92,7 +95,7 @@ namespace NeedleX.ProcessSpace
                         {
                             if (m_CmdIndex < m_CmdCount)
                             {
-                                Process.NextDuriation = 100;
+                                Process.NextDuriation = 300;
                                 Process.ID = 1510;
 
                                 m_CmdCurrent = ModelPositioningClass.Instance.ModelPosList[m_CmdIndex];
@@ -105,16 +108,16 @@ namespace NeedleX.ProcessSpace
                                 if (m_StepIndex < m_StepCount)
                                 {
                                     //抓图完成 进行下一组
-                                    Process.NextDuriation = 100;
+                                    Process.NextDuriation = m_StayTimeMs;
                                     Process.ID = 20;
 
                                     m_StepIndex++;
                                 }
                                 else
                                 {
-                                    MACHINE.GoPosition("0,0,0", true);
-
-                                    Process.NextDuriation = 100;
+                                    //MACHINE.GoPosition("0,0,0", true);
+                                    //MACHINE.GoReadyPosition();
+                                    Process.NextDuriation = 300;
                                     Process.ID = 25;
 
                                 }
@@ -126,7 +129,7 @@ namespace NeedleX.ProcessSpace
                         {
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-                                Process.NextDuriation = 200;
+                                Process.NextDuriation = m_StayTimeMs;
                                 Process.ID = 15;
                             }
                         }
@@ -154,7 +157,7 @@ namespace NeedleX.ProcessSpace
                         {
                             m_CmdIndex = 0;
 
-                            Process.NextDuriation = 100;
+                            Process.NextDuriation = 300;
                             Process.ID = 10;
                         }
                         break;

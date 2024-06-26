@@ -596,6 +596,12 @@ namespace VsCommon.ControlSpace.MachineSpace
         public override void GoHome()
         {
         }
+        public void GoReadyPosition()
+        {
+            PLCMOTIONCollection[0].Go(PLCMOTIONCollection[0].READYPOSITION);
+            PLCMOTIONCollection[1].Go(PLCMOTIONCollection[1].READYPOSITION);
+            PLCMOTIONCollection[2].Go(PLCMOTIONCollection[2].READYPOSITION);
+        }
         public void GoPosition(string opstr, bool zgo = false)
         {
             //zgo = true;
@@ -659,9 +665,9 @@ namespace VsCommon.ControlSpace.MachineSpace
             float y = (float)Math.Round(float.Parse(strs[1]), 3);
             float z = (float)Math.Round(float.Parse(strs[2]), 3);
 
-            bOK = IsInRange(PLCMOTIONCollection[0].PositionNow, x, 0.01)
-               && IsInRange(PLCMOTIONCollection[1].PositionNow, y, 0.01)
-               && IsInRange(PLCMOTIONCollection[2].PositionNow, z, 0.01);
+            bOK = IsInRange(PLCMOTIONCollection[0].PositionNow, x, 0.005)
+               && IsInRange(PLCMOTIONCollection[1].PositionNow, y, 0.005)
+               && IsInRange(PLCMOTIONCollection[2].PositionNow, z, 0.005);
 
             return bOK;
         }

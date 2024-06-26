@@ -32,10 +32,17 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.4")]
-[assembly: AssemblyFileVersion("1.0.0.4")]
+[assembly: AssemblyVersion("1.0.0.5")]
+[assembly: AssemblyFileVersion("1.0.0.5")]
 
 /*
+ * 20240627
+ * 1.加入自动流程的拟合曲线对焦算法
+ * 2.加入自动流程循环测试稳定性流程
+ * 3.记录报表
+ * 4.所有的调整的参数都通用
+ * 
+ * 
  * 20240620
  * 1.数据重现性测试完成 整合代码
  * 

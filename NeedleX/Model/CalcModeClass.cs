@@ -1,7 +1,9 @@
 ﻿using AForge.Imaging.Filters;
+using OpenCvSharp;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,7 +14,7 @@ namespace NeedleX.Model
     public class CalcModeClass
     {
         public CalcModeClass() { }
-
+        public bool xDebug { get; set; } = false;
         public int Index { get; set; } = 0;
         //public Bitmap xBmpInput { get; set; } = new Bitmap(1, 1);
         public float xPosStart { get; set; } = 0;
@@ -123,6 +125,11 @@ namespace NeedleX.Model
         }
         private Bitmap ConvertFromMONO(byte[] rgbaData, int width, int height)
         {
+            if (xDebug)
+            {
+                return GetImageByBytes(rgbaData);
+            }
+
             var pixelFormat = System.Drawing.Imaging.PixelFormat.Format8bppIndexed;
             Bitmap bitmap = new Bitmap(width, height, pixelFormat);
 
@@ -143,6 +150,25 @@ namespace NeedleX.Model
             bitmap.Palette = tempPalette;
 
             return bitmap;
+        }
+        /// <summary>
+        /// 将Byte字节数组转化为Image图像
+        /// </summary>
+        /// <param name="bytes">Byte字节数组</param>
+        /// <returns>返回转化后的图像</returns>
+        public Bitmap GetImageByBytes(byte[] bytes)
+        {
+            Image photo = null;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                ms.Write(bytes, 0, bytes.Length);
+                photo = Image.FromStream(ms, true);
+            }
+            //Gray
+            AForge.Imaging.Filters.Grayscale grayscale = new AForge.Imaging.Filters.Grayscale(0.299, 0.587, 0.114);
+            Bitmap bmpgray = grayscale.Apply((Bitmap)photo);
+            photo.Dispose();
+            return bmpgray;
         }
 
     }

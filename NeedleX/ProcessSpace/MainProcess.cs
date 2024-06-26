@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -21,6 +22,8 @@ namespace NeedleX.ProcessSpace
 
         int m_CmdIndex = 0;
         int m_CmdCount = 0;
+        string m_CmdCurrent = "";
+        int m_StayTimeMs = 300;
 
         NeedleXYZ m_CurrentXYZ = new NeedleXYZ();
         XRowEventArgs xRowEventArgs = new XRowEventArgs();
@@ -65,6 +68,7 @@ namespace NeedleX.ProcessSpace
 
                         m_CmdIndex = 0;
                         m_CmdCount = ModelPositioningClass.Instance.ModelPosList.Count;
+                        m_StayTimeMs = RecipeNeedleClass.Instance.StayTimeMs;
 
                         MACHINE.PLCIO.LedReset();
                         MACHINE.PLCIO.SetLedValue(0, (int)RecipeNeedle.GetCamLedValue(0));
@@ -81,8 +85,8 @@ namespace NeedleX.ProcessSpace
                                 Process.NextDuriation = 500;
                                 Process.ID = 15;
 
-                                string _cmd = ModelPositioningClass.Instance.ModelPosList[m_CmdIndex];
-                                MACHINE.GoPosition(_cmd, true);
+                                m_CmdCurrent = ModelPositioningClass.Instance.ModelPosList[m_CmdIndex];
+                                MACHINE.GoPosition(m_CmdCurrent, true);
 
                                 m_CmdIndex++;
                             }
@@ -97,7 +101,17 @@ namespace NeedleX.ProcessSpace
                     case 15:
                         if (Process.IsTimeup)
                         {
-                            if (MACHINE.IsOnsite(true))
+                            if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
+                            {
+                                Process.NextDuriation = m_StayTimeMs;
+                                Process.ID = 1510;
+                            }
+                        }
+                        break;
+                    case 1510:
+                        if (Process.IsTimeup)
+                        {
+                            if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
                                 using (Bitmap bmp = snapshot_image(GetCamera(0)))
                                 {
@@ -124,12 +138,12 @@ namespace NeedleX.ProcessSpace
                         {
                             if (m_CmdIndex < m_CmdCount)
                             {
-                                Process.NextDuriation = 100;
+                                Process.NextDuriation = 500;
                                 Process.ID = 30;
 
-                                string _cmd = CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex];
-                                MACHINE.GoPosition(_cmd, true);
-                                m_CurrentXYZ = new NeedleXYZ(_cmd);
+                                m_CmdCurrent = CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex];
+                                MACHINE.GoPosition(m_CmdCurrent, true);
+                                m_CurrentXYZ = new NeedleXYZ(m_CmdCurrent);
 
                                 m_CmdIndex++;
                             }
@@ -144,19 +158,23 @@ namespace NeedleX.ProcessSpace
                     case 30:
                         if (Process.IsTimeup)
                         {
-                            if (MACHINE.IsOnsite(true))
+                            if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-                                //using (Bitmap bmp = snapshot_image(GetCamera(1)))
-                                //{
-                                //    FireLiveImaging(bmp);
-                                //}
-
-                                
+                                Process.NextDuriation = m_StayTimeMs;
+                                Process.ID = 3010;
+                            }
+                        }
+                        break;
+                    case 3010:
+                        if (Process.IsTimeup)
+                        {
+                            if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
+                            {
                                 FocusProcess.Instance.SetFocusRecipe((float)m_CurrentXYZ.Z, eFocusMode: 1);
                                 FocusProcess.Instance.Start();
                                 m_Stopwatch.Restart();
 
-                                Process.NextDuriation = 100;
+                                Process.NextDuriation = 500;
                                 Process.ID = 35;
                             }
                         }
@@ -185,6 +203,10 @@ namespace NeedleX.ProcessSpace
                         if (Process.IsTimeup)
                         {
                             Process.Stop();
+                            string report_path = $"D:\\Report\\Needle";
+                            if (!Directory.Exists(report_path))
+                                Directory.CreateDirectory(report_path);
+                            FireMessage(new ProcessEventArgs($"SaveReport.", $"{report_path}\\Single_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.csv"));
                             FireCompleted();
                         }
                         break;

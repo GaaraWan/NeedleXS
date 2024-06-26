@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -297,6 +298,86 @@ namespace JetEazy.CCDSpace
             //return (Bitmap)m_BmpError.Clone();
             #endregion
         }
+        public Bitmap GetDebugIndex(int index = 0)
+        {
+            #region DEBUG RETURN
+            if (_camCfg.IsDebug)
+            {
+                Bitmap ret = null;  //  this ret must be new bitmap or clone() !!
+
+                //is it possible that m_BmpError is null here?
+                {
+                    if (list_debugFiles.Count <= 0)
+                    {
+                        ret = (Bitmap)m_BmpError.Clone();
+                    }
+                    else
+                    {
+                        dbgIndex = index;
+                        if (dbgIndex >= list_debugFiles.Count)
+                            dbgIndex = 0;
+
+                        Bitmap bmp = new Bitmap(list_debugFiles[dbgIndex]);
+                        ret = new Bitmap(bmp);
+                        bmp.Dispose();
+
+                        dbgIndex++;
+                    }
+                }
+                return ret;
+            }
+            #endregion
+
+            if (_cam == null)
+                return (Bitmap)m_BmpError.Clone();  // ok
+
+            Bitmap newBitmapFrame = _cam.GetImageNow();
+            //不旋轉圖像
+            //if (newBitmapFrame != null)
+            //    return newBitmapFrame;
+            if (newBitmapFrame != null)
+            {
+                if (_camCfg.Rotate == 0)
+                    return newBitmapFrame;
+                Bitmap bitmap = new Bitmap(newBitmapFrame);
+                switch (_camCfg.Rotate)
+                {
+                    case 90:
+                        bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        break;
+                    case 270:
+                        bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        break;
+                    case 180:
+                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                        break;
+                }
+                newBitmapFrame.Dispose();
+                return bitmap;
+            }
+            return (Bitmap)m_BmpError.Clone();
+
+            #region MASK is old Funtion
+            //Stopwatch watch = new Stopwatch();
+            //watch.Start();
+            //while (true)
+            //{
+            //    Bitmap newBitmapFrame = _cam.CaptureBmp(_camCfg.Rotate);
+
+            //    if (newBitmapFrame != null)
+            //    {
+            //        //var ret= (Bitmap)bmptemp.Clone();
+            //        //bmptemp.Dispose();
+            //        //return ret;
+            //        return newBitmapFrame;
+            //    }
+
+            //    if (watch.ElapsedMilliseconds > msec)
+            //        break;
+            //}
+            //return (Bitmap)m_BmpError.Clone();
+            #endregion
+        }
         public int GetFps()
         {
             if (_camCfg.IsDebug)
@@ -395,8 +476,36 @@ namespace JetEazy.CCDSpace
         }
         public void FlyAnalyzeImage(ref List<byte[]> imageList)
         {
+            #region DEBUG RETURN
             if (_camCfg.IsDebug)
-                return;
+            {
+                imageList.Clear();
+                Bitmap ret = null;  //  this ret must be new bitmap or clone() !!
+
+                //is it possible that m_BmpError is null here?
+                {
+                    if (list_debugFiles.Count <= 0)
+                    {
+                        ret = (Bitmap)m_BmpError.Clone();
+                        byte[] bytes = GetByteImage(ret);
+                        imageList.Add(bytes);
+                    }
+                    else
+                    {
+                        foreach (string file in list_debugFiles)
+                        {
+                            Bitmap bmp = new Bitmap(file);
+                            //ret = new Bitmap(bmp);
+
+                            byte[] bytes = GetByteImage(bmp);
+                            imageList.Add(bytes);
+
+                            bmp.Dispose();
+                        }
+                    }
+                }
+            }
+            #endregion
             if (_cam == null)
                 return;
             _cam.DvpFlyAnalyzeImage(ref imageList);
@@ -417,6 +526,43 @@ namespace JetEazy.CCDSpace
                 return;
             _cam.SetFramesPerTrigger(framesCount);
 
+        }
+        /// <summary>
+        /// 将Image转化为Byte数组
+        /// </summary>
+        /// <param name="img">要转化的图像</param>
+        /// <returns>返回转化后的Byte字节数组</returns>
+        public byte[] GetByteImage(Image img)
+        {
+            byte[] bt = null;
+            if (!img.Equals(null))
+            {
+                using (MemoryStream mostream = new MemoryStream())
+                {
+                    Bitmap bmp = new Bitmap(img);
+                    bmp.Save(mostream, System.Drawing.Imaging.ImageFormat.Bmp);//将图像以指定的格式存入缓存内存流
+                    bt = new byte[mostream.Length];
+                    mostream.Position = 0;//设置留的初始位置
+                    mostream.Read(bt, 0, Convert.ToInt32(bt.Length));
+                }
+            }
+            return bt;
+        }
+
+        /// <summary>
+        /// 将Byte字节数组转化为Image图像
+        /// </summary>
+        /// <param name="bytes">Byte字节数组</param>
+        /// <returns>返回转化后的图像</returns>
+        public static Image GetImageByBytes(byte[] bytes)
+        {
+            Image photo = null;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                ms.Write(bytes, 0, bytes.Length);
+                photo = Image.FromStream(ms, true);
+            }
+            return photo;
         }
     }
     public class CAMERADAHUAClass : ICam

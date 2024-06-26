@@ -64,6 +64,9 @@
     <Reference Include="AForge.Math">
       <HintPath>..\Utility\DLLS\AForge.Math.dll</HintPath>
     </Reference>
+    <Reference Include="FreeImageNET">
+      <HintPath>..\Utility\DLLS\FreeImageNET.dll</HintPath>
+    </Reference>
     <Reference Include="MoveGraphLibrary">
       <HintPath>..\Utility\DLLS\MoveGraphLibrary.dll</HintPath>
     </Reference>
@@ -178,6 +181,7 @@
     <Compile Include="OPSpace\ResultSpace\GeoResultClass.cs" />
     <Compile Include="OPSpace\ResultSpace\JzBaseResultClass.cs" />
     <Compile Include="ProcessSpace\AbsProcess.cs" />
+    <Compile Include="ProcessSpace\AutoRunStabilizeProcess.cs" />
     <Compile Include="ProcessSpace\BaseProcess.cs" />
     <Compile Include="ProcessSpace\BuzzerProcess.cs" />
     <Compile Include="ProcessSpace\FocusProcess.cs" />

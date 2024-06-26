@@ -69,6 +69,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\JetEazy\JetEazy.QUtility.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\DLLS\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MvCameraControl.Net">
       <HintPath>..\DLLS\MvCameraControl.Net.dll</HintPath>
@@ -101,6 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicSpace\EzDataItem.cs" />
+    <Compile Include="BasicSpace\EzPolyFit.cs" />
     <Compile Include="BasicSpace\ImageFromMemory.cs" />
     <Compile Include="BasicSpace\JzAHBlob.cs" />
     <Compile Include="BasicSpace\JzFindObjectClass.cs" />

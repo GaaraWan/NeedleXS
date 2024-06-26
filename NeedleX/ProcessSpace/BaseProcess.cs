@@ -39,6 +39,10 @@ namespace NeedleX.ProcessSpace
         {
             get { return GetCamera(1); }
         }
+        protected JetEazy.CCDSpace.CAMERAClass xCamFocus
+        {
+            get { return Traveller106.Universal.CAMERAS[1]; }
+        }
 
         protected IAxis axisX
         {
@@ -51,6 +55,13 @@ namespace NeedleX.ProcessSpace
         protected IAxis axisZ
         {
             get { return GetAxis(2); }
+        }
+        protected JetEazy.ControlSpace.MotionSpace.PLCMotionClass ZAXIS
+        {
+            get
+            {
+                return ((NeedleMachineClass)MACHINECollection.MACHINE).PLCMOTIONCollection[2];
+            }
         }
 
         protected ICam GetCamera(int camID)

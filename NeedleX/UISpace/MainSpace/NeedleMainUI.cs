@@ -6,6 +6,7 @@ using JzDisplay;
 using JzDisplay.UISpace;
 using NeedleX.FormSpace;
 using NeedleX.ProcessSpace;
+//using OpenCvSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,10 @@ namespace NeedleX.UISpace.MainSpace
         //{
         //    get { return Universal.CAMERAS[0]; }
         //}
-
+        protected JetEazy.CCDSpace.CAMERAClass xCamFocus
+        {
+            get { return Traveller106.Universal.CAMERAS[1]; }
+        }
         protected MachineCollectionClass MACHINECollection
         {
             get
@@ -50,6 +54,7 @@ namespace NeedleX.UISpace.MainSpace
         Button btnMute;
         Button btnManualAuto;
         Button btnStabilize;
+        Button btnAutoRunStabilize;
 
         Label lblAlarm;
         Label lblState;
@@ -64,7 +69,7 @@ namespace NeedleX.UISpace.MainSpace
         Label lblpercent;
         ProgressBar progressBar;
         Button btnSaveData;
-
+        PictureBox pbxFocus;
         
 
         bool[] m_plcCommError;
@@ -107,6 +112,11 @@ namespace NeedleX.UISpace.MainSpace
             update_Display();
             CommonLogClass.Instance.SetRichTextBox(richTextBox1);
 
+            pbxFocus = pictureBox1;
+            pbxFocus.Location = new Point(DS1.Location.X, DS1.Location.Y);
+            pbxFocus.Width = DS1.Width;
+            pbxFocus.Height = DS1.Height;
+
             btnAutoFocus = button2;
             btnAutoFocus.Click += BtnAutoFocus_Click;
 
@@ -130,11 +140,13 @@ namespace NeedleX.UISpace.MainSpace
             btnStop = button4;
             btnReset = button7;
             btnStabilize = button3;
+            btnAutoRunStabilize = button16;
 
             btnStart.Click += BtnStart_Click;
             btnStop.Click += BtnStop_Click;
             btnReset.Click += BtnReset_Click;
             btnStabilize.Click += BtnStabilize_Click;
+            btnAutoRunStabilize.Click += BtnAutoRunStabilize_Click;
 
             btnToAbs.Click += BtnToAbs_Click;
             btnToMicro.Click += BtnToMicro_Click;
@@ -160,6 +172,43 @@ namespace NeedleX.UISpace.MainSpace
             this.OnLiveImage += process_OnLiveImage;
             start_scan_thread();
         }
+
+        private void BtnAutoRunStabilize_Click(object sender, EventArgs e)
+        {
+            //判断是否在手动状态
+            if (MACHINE.PLCIO.ADR_ISAUTO_AND_MANUAL && !Traveller106.Universal.IsNoUseIO)
+            {
+                VsMSG.Instance.Warning("手动模式下，无法启动，请检查。");
+                return;
+            }
+
+            //判斷是否開啓真空
+            if (!MACHINE.PLCIO.ADR_ISVACC && !Traveller106.Universal.IsNoUseIO)
+            {
+                VsMSG.Instance.Warning("真空未打開，無法啓動。");
+                return;
+            }
+
+            string onStrMsg = "是否要启动？";
+            string offStrMsg = "是否要停止？";
+            string msg = (m_autorunstabilizeprocess.IsOn ? offStrMsg : onStrMsg);
+            if (m_autorunstabilizeprocess.IsOn)
+                if (VsMSG.Instance.Question(msg) != DialogResult.OK)
+                    return;
+
+            if (true)
+            {
+                if (!m_autorunstabilizeprocess.IsOn)
+                {
+                    m_autorunstabilizeprocess.Start();
+                }
+                else
+                {
+                    StopAllProcesses("USERSTOP");
+                }
+            }
+        }
+
         public void Close()
         {
             stop_scan_thread();
@@ -364,6 +413,10 @@ namespace NeedleX.UISpace.MainSpace
         {
             get { return StabilizeProcess.Instance; }
         }
+        BaseProcess m_autorunstabilizeprocess
+        {
+            get { return AutoRunStabilizeProcess.Instance; }
+        }
 
         void StopAllProcesses(string reason = "")
         {
@@ -371,6 +424,7 @@ namespace NeedleX.UISpace.MainSpace
             m_mainprocess.Stop();
             m_focusprocess.Stop();
             m_stablizeprocess.Stop();
+            m_autorunstabilizeprocess.Stop();
 
             switch (reason)
             {
@@ -399,13 +453,20 @@ namespace NeedleX.UISpace.MainSpace
             m_mainprocess.OnCompleted += process_OnCompleted;
             m_focusprocess.OnCompleted += process_OnCompleted;
             m_stablizeprocess.OnCompleted += process_OnCompleted;
+            m_autorunstabilizeprocess.OnCompleted += process_OnCompleted;
 
             ((MainProcess)m_mainprocess).OnLiveImage += process_OnLiveImage;
             ((FocusProcess)m_focusprocess).OnLiveImage += process_OnLiveImage;
             m_stablizeprocess.OnLiveImage += process_OnLiveImage;
 
             m_mainprocess.OnMessage += handle_main_process_completed;
+            m_focusprocess.OnMessage += handle_focus_process_completed;
+            m_autorunstabilizeprocess.OnMessage += handle_autorunstabilizeprocess_completed;
         }
+
+       
+
+
 
         //private void M_mainprocess_OnMessage(object sender, ProcessEventArgs e)
         //{
@@ -444,9 +505,48 @@ namespace NeedleX.UISpace.MainSpace
             m_mainprocess.Tick();
             m_focusprocess.Tick();
             m_stablizeprocess.Tick();
+            m_autorunstabilizeprocess.Tick();
         }
 
-
+        private void handle_autorunstabilizeprocess_completed(object sender, ProcessEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                EventHandler<ProcessEventArgs> h = handle_autorunstabilizeprocess_completed;
+                BeginInvoke(h, sender, e);
+            }
+            else
+            {
+                if (e.Message.IndexOf("AutoRun") > -1)
+                {
+                    if (e.Tag != null)
+                    {
+                        string msg = e.Tag as string;
+                        CommonLogClass.Instance.LogMessage(msg);
+                    }
+                }
+            }
+        }
+        private void handle_focus_process_completed(object sender, ProcessEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                EventHandler<ProcessEventArgs> h = handle_focus_process_completed;
+                BeginInvoke(h, sender, e);
+            }
+            else
+            {
+                if (e.Message.IndexOf("FocusViewVisible") > -1)
+                {
+                    if (e.Tag != null)
+                    {
+                        bool bShow = (bool)e.Tag;
+                        pbxFocus.Visible = bShow;
+                        xCamFocus.FlySetPbxHandle(pbxFocus.Handle);
+                    }
+                }
+            }
+        }
         private void process_OnCompleted(object sender, ProcessEventArgs e)
         {
             if (sender == m_resetprocess)
@@ -514,6 +614,14 @@ namespace NeedleX.UISpace.MainSpace
                         lblpercent.Text = (xRow.Index * 1.0 / myCount * 100).ToString("0.00") + " %";
                     }
                 }
+                if (e.Message.IndexOf("SaveReport") > -1)
+                {
+                    if (e.Tag != null)
+                    {
+                        string report_path = e.Tag as string;
+                        JzViewer.Invoke_SaveData(report_path);
+                    }
+                }
                 else if (e.Message.IndexOf("ResetData") > -1)
                 {
                     JzViewer.Invoke_ClrTable();
@@ -539,6 +647,7 @@ namespace NeedleX.UISpace.MainSpace
                         // 在此不用 Dispose
                         Bitmap bmp = (Bitmap)e.Tag;
                         DS1.ReplaceDisplayImage(bmp);
+                        DS1.DefaultView();
                     }
                 }
                 catch (Exception ex)
@@ -639,7 +748,7 @@ namespace NeedleX.UISpace.MainSpace
             btnManualAuto.Text = (!MACHINE.PLCIO.ADR_ISAUTO_AND_MANUAL ? "自动" : "手动");
             btnStart.BackColor = (m_mainprocess.IsOn ? Color.Red : Color.FromArgb(192, 255, 192));
             btnStabilize.BackColor = (m_stablizeprocess.IsOn ? Color.Red : Color.FromArgb(192, 255, 192));
-
+            btnAutoRunStabilize.BackColor = (m_autorunstabilizeprocess.IsOn ? Color.Red : Color.FromArgb(192, 255, 192));
 
             TickAllProcesses();
             AlarmUITick();

@@ -83,7 +83,7 @@ namespace NeedleX.ProcessSpace
                         m_CmdIndex = 0;
                         m_CmdCount = ModelPositioningClass.Instance.ModelPosList.Count;
 
-                        m_StepIndex = 0;
+                        m_StepIndex = 1;
                         m_StepCount = RecipeNeedleClass.Instance.TestCount;
 
                         m_StayTimeMs = RecipeNeedleClass.Instance.StayTimeMs;

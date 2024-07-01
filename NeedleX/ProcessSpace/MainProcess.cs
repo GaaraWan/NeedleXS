@@ -86,6 +86,7 @@ namespace NeedleX.ProcessSpace
                                 Process.ID = 15;
 
                                 m_CmdCurrent = ModelPositioningClass.Instance.ModelPosList[m_CmdIndex];
+                                MACHINECollection.MotorSpeed();
                                 MACHINE.GoPosition(m_CmdCurrent, true);
 
                                 m_CmdIndex++;
@@ -142,6 +143,7 @@ namespace NeedleX.ProcessSpace
                                 Process.ID = 30;
 
                                 m_CmdCurrent = CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex];
+                                MACHINECollection.MotorSpeed();
                                 MACHINE.GoPosition(m_CmdCurrent, true);
                                 m_CurrentXYZ = new NeedleXYZ(m_CmdCurrent);
 

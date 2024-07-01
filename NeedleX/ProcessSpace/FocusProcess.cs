@@ -421,9 +421,9 @@ namespace NeedleX.ProcessSpace
                             xCamFocus.FlyImage(false);
                             #endregion
 
-                            if (xCamFocus.myIndex != MACHINE.PLCIO.GetFlyPLCCount)
+                            //if (xCamFocus.myIndex != MACHINE.PLCIO.GetFlyPLCCount)
                             {
-                                CommonLogClass.Instance.LogMessage($"收集数据与plc触发数据不一致，记录文件夹{xRootPath}");
+                                CommonLogClass.Instance.LogMessage($"收集数据{focusList.Count}与plc触发数据{MACHINE.PLCIO.GetFlyPLCCount}，记录文件夹{xRootPath}");
                             }
 
                             Process.NextDuriation = 300;

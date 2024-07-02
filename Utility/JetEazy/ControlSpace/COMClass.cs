@@ -418,7 +418,7 @@ namespace JetEazy.ControlSpace
 
         //暂存命令的List(有需要时才下这些指令)
         List<CMDClass> CommandListToTemp = new List<CMDClass>();
-
+        object locker = new object();
         //排隊等待命令的Queue
         protected Queue<CMDClass> CommandQueue = new Queue<CMDClass>();
 
@@ -735,40 +735,43 @@ namespace JetEazy.ControlSpace
         {
             //if (isTick || RetryIndex == 0)
             {
-                if (CommandQueue.Count > 0)
+                lock (locker)
                 {
-                    LastCommad = CommandQueue.Dequeue();
-                    if (LastCommad != null)
-                        WriteCommand();
-                }
-                else
-                {
-                    if (isNormalTempNO)
+                    if (CommandQueue.Count > 0)
                     {
-                        if (NormalTempIndex != InitialIndex) //防止無 Normal Command 的
-                        {
-                            if (NormalTempIndicator > NormalTempIndex - 1)
-                                NormalTempIndicator = InitialIndex;
-
-                            LastCommad = CommandListToTemp[NormalTempIndicator];
-
-                            NormalTempIndicator++;
-
+                        LastCommad = CommandQueue.Dequeue();
+                        if (LastCommad != null)
                             WriteCommand();
-                        }
                     }
                     else
                     {
-                        if (NormalIndex != InitialIndex) //防止無 Normal Command 的
+                        if (isNormalTempNO)
                         {
-                            if (NormalIndicator > NormalIndex - 1)
-                                NormalIndicator = InitialIndex;
+                            if (NormalTempIndex != InitialIndex) //防止無 Normal Command 的
+                            {
+                                if (NormalTempIndicator > NormalTempIndex - 1)
+                                    NormalTempIndicator = InitialIndex;
 
-                            LastCommad = CommandList[NormalIndicator];
+                                LastCommad = CommandListToTemp[NormalTempIndicator];
 
-                            NormalIndicator++;
+                                NormalTempIndicator++;
 
-                            WriteCommand();
+                                WriteCommand();
+                            }
+                        }
+                        else
+                        {
+                            if (NormalIndex != InitialIndex) //防止無 Normal Command 的
+                            {
+                                if (NormalIndicator > NormalIndex - 1)
+                                    NormalIndicator = InitialIndex;
+
+                                LastCommad = CommandList[NormalIndicator];
+
+                                NormalIndicator++;
+
+                                WriteCommand();
+                            }
                         }
                     }
                 }
@@ -817,8 +820,13 @@ namespace JetEazy.ControlSpace
             {
                 if (myCommand.CheckCommand(CommandString))
                 {
-                    myCommand.refCMDStr = refStr;
-                    CommandQueue.Enqueue(myCommand.Clone());
+                    lock(locker)
+                    {
+                        myCommand.refCMDStr = refStr;
+                        CommandQueue.Enqueue(myCommand.Clone());
+                        myCommand.refCMDStr = string.Empty;
+                    }
+
                     break;
                 }
             }

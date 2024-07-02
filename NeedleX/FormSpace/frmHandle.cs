@@ -74,6 +74,8 @@ namespace NeedleX.FormSpace
         {
             this.Text = "轴控手动界面";
 
+            //MACHINE.SetNormalTemp(true);
+
             motionTouchPanel = new MotionTouchPanelUIClass(vsHandleMotorUI1);
             cboAxisList.Items.Clear();
 

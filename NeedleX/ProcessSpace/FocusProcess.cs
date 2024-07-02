@@ -415,6 +415,10 @@ namespace NeedleX.ProcessSpace
 
                             //定位至对焦位置
                             m_PosComplete = (float)ezData.FocusPosition[0];
+
+                            ZAXIS.GOSPEED = INI.Instance.xReturnSpeed;
+                            ZAXIS.SetSpeed(JetEazy.ControlSpace.MotionSpace.SpeedTypeEnum.GO);
+
                             ZAXIS.Go(m_PosComplete);
 
                             FireMessage(new ProcessEventArgs($"FocusViewVisible.", false));

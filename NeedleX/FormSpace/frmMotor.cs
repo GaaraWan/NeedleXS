@@ -67,6 +67,8 @@ namespace Traveller106.FormSpace
 
         void Init()
         {
+            //MACHINE.SetNormalTemp(true);
+
             #region 位置设定控件
 
             //tabPage1.Text = "AXIS-XYZ";

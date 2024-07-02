@@ -74,6 +74,7 @@ namespace NeedleX.ProcessSpace
                         MACHINE.PLCIO.SetLedValue(0, (int)RecipeNeedle.GetCamLedValue(0));
                         FireMessage(new ProcessEventArgs($"ResetData."));
 
+                        Traveller106.Universal.DEBUGRESULTPATH = $"D:\\JETEAZY\\{Traveller106.Universal.VEROPT}\\DEBUG\\Main_{JzTimes.DateTimeSerialString}";
 
                         break;
 
@@ -173,7 +174,7 @@ namespace NeedleX.ProcessSpace
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
                                 FocusProcess.Instance.SetFocusRecipe((float)m_CurrentXYZ.Z, eFocusMode: 1);
-                                FocusProcess.Instance.Start();
+                                FocusProcess.Instance.Start("MainOnFire");
                                 m_Stopwatch.Restart();
 
                                 Process.NextDuriation = 500;

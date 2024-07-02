@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetEazy", "..\Utility\JetEa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JzDisplay", "..\Utility\JzDisplay\JzDisplay.csproj", "{CFB82D4A-7F2E-40F6-AB40-34C043FBA2C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetEazy.OpenCv4", "..\Utility\JetEazy.OpenCv4\JetEazy.OpenCv4.csproj", "{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,18 @@ Global
 		{CFB82D4A-7F2E-40F6-AB40-34C043FBA2C9}.Release|x64.Build.0 = Release|x64
 		{CFB82D4A-7F2E-40F6-AB40-34C043FBA2C9}.Release|x86.ActiveCfg = Release|x86
 		{CFB82D4A-7F2E-40F6-AB40-34C043FBA2C9}.Release|x86.Build.0 = Release|x86
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|x64.Build.0 = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Debug|x86.Build.0 = Debug|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|x64.ActiveCfg = Release|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|x64.Build.0 = Release|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|x86.ActiveCfg = Release|Any CPU
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +78,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A24458C1-B3AC-462A-8B42-DAFD1D420E19} = {BF91AFE2-8237-451C-BA0A-3F77EFA2E352}
 		{CFB82D4A-7F2E-40F6-AB40-34C043FBA2C9} = {BF91AFE2-8237-451C-BA0A-3F77EFA2E352}
+		{ECF19B8D-BE9A-4159-8B94-DEFC25A59507} = {BF91AFE2-8237-451C-BA0A-3F77EFA2E352}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E0E8F23-0194-4D56-B5E9-943E0E5AF057}

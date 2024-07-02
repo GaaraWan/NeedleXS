@@ -119,7 +119,6 @@
     <Compile Include="BasicSpace\JzTransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BasicSpace\QvFit.cs" />
     <Compile Include="CCDSpace\CAMERAClass.cs" />
     <Compile Include="CCDSpace\CamLinkDriver\LINESCAN_HUARUI.cs" />
     <Compile Include="CCDSpace\CamLinkDriver\Euresys\MultiCam.cs" />

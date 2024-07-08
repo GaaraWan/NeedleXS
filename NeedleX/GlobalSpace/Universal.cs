@@ -29,7 +29,7 @@ namespace Traveller106
         public static bool IsSilentMode = IsNoUseIO;     //抑制 Buzzer
         public static bool IsAutoLogin = true;     //抑制 Buzzer
 
-        public static string VersionDate = "2024/06/27";
+        public static string VersionDate = "2024/07/08";
 
         public static VersionEnum VERSION = VersionEnum.TRAVELLER;
         public static OptionEnum OPTION = OptionEnum.MAIN_NEEDLE;
@@ -161,6 +161,7 @@ namespace Traveller106
             JetEazy.BasicSpace.LanguageExClass.Instance.Load(WORKPATH);
             JetEazy.BasicSpace.LanguageExClass.Instance.LanguageIndex = 1;
 
+            testProgramme();
 
             //byte[] data = new byte[4];
             //data[0] = (byte)9;
@@ -486,6 +487,31 @@ namespace Traveller106
                 Directory.CreateDirectory(DEBUGSRCPATH);
             if (!Directory.Exists(DEBUGRESULTPATH))
                 Directory.CreateDirectory(DEBUGRESULTPATH);
+        }
+        static void testProgramme()
+        {
+            ////测试校正功能 这里只是坐标系平移和旋转
+            //JetEazy.BasicSpace.CAoiCalibration cAoiCalibration = new JetEazy.BasicSpace.CAoiCalibration();
+            //PointF[,] _w = new PointF[2, 2];
+            //PointF[,] _v = new PointF[2, 2];
+            //_w[0, 0] = new PointF(0, 1);
+            //_w[0, 1] = new PointF(1, 1);
+            //_w[1, 0] = new PointF(0, 0);
+            //_w[1, 1] = new PointF(1, 0);
+
+            //_v[0, 0] = new PointF(2, 1);
+            //_v[0, 1] = new PointF(2, 0);
+            //_v[1, 0] = new PointF(1, 1);
+            //_v[1, 1] = new PointF(1, 0);
+
+            //cAoiCalibration.SetCalibrationPoints(_w, _v);
+            //cAoiCalibration.CalculateTransformMatrix();
+
+            //PointF w1 = new PointF(1, 1);
+            //PointF v1 = new PointF(0, 0);
+            //cAoiCalibration.TransformViewToWorld(w1, out v1);
+
+
         }
         public static void Close()
         {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -56,15 +58,15 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pgNormal = new System.Windows.Forms.PropertyGrid();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.posUI2 = new NeedleX.UISpace.PosUI();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.posUI1 = new NeedleX.UISpace.PosUI();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.DS = new JzDisplay.UISpace.DispUI();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DS = new JzDisplay.UISpace.DispUI();
+            this.posUI2 = new NeedleX.UISpace.PosUI();
+            this.posUI1 = new NeedleX.UISpace.PosUI();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -81,6 +83,7 @@
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.button12);
             this.pnlTop.Controls.Add(this.button10);
             this.pnlTop.Controls.Add(this.label4);
             this.pnlTop.Controls.Add(this.button6);
@@ -92,6 +95,17 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1440, 125);
             this.pnlTop.TabIndex = 2;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button10.Location = new System.Drawing.Point(456, 19);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(105, 50);
+            this.button10.TabIndex = 21;
+            this.button10.Text = "轴控";
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -151,6 +165,7 @@
             // 
             // pnlBottom
             // 
+            this.pnlBottom.Controls.Add(this.label7);
             this.pnlBottom.Controls.Add(this.button1);
             this.pnlBottom.Controls.Add(this.button2);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -220,6 +235,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "相机参数";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button11.Location = new System.Drawing.Point(348, 25);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(105, 28);
+            this.button11.TabIndex = 26;
+            this.button11.Text = "定位至对焦位置";
+            this.button11.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
@@ -389,14 +415,6 @@
             this.tabPage3.Text = "定位参数";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // posUI2
-            // 
-            this.posUI2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.posUI2.Location = new System.Drawing.Point(0, 0);
-            this.posUI2.Name = "posUI2";
-            this.posUI2.Size = new System.Drawing.Size(461, 621);
-            this.posUI2.TabIndex = 0;
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.posUI1);
@@ -406,14 +424,6 @@
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "坐标参数";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // posUI1
-            // 
-            this.posUI1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.posUI1.Location = new System.Drawing.Point(0, 0);
-            this.posUI1.Name = "posUI1";
-            this.posUI1.Size = new System.Drawing.Size(461, 621);
-            this.posUI1.TabIndex = 0;
             // 
             // tabControl2
             // 
@@ -437,15 +447,6 @@
             this.tabPage4.Text = "图像显示";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // DS
-            // 
-            this.DS.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DS.Location = new System.Drawing.Point(3, 3);
-            this.DS.Name = "DS";
-            this.DS.Size = new System.Drawing.Size(957, 622);
-            this.DS.TabIndex = 5;
-            // 
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -456,27 +457,53 @@
             this.tabPage5.Text = "模组位置设定";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button12
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Location = new System.Drawing.Point(456, 19);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(105, 50);
-            this.button10.TabIndex = 21;
-            this.button10.Text = "轴控";
-            this.button10.UseVisualStyleBackColor = false;
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button12.Location = new System.Drawing.Point(567, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(105, 50);
+            this.button12.TabIndex = 22;
+            this.button12.Text = "对位";
+            this.button12.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // label7
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.Location = new System.Drawing.Point(348, 25);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(105, 28);
-            this.button11.TabIndex = 26;
-            this.button11.Text = "定位至对焦位置";
-            this.button11.UseVisualStyleBackColor = false;
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Lime;
+            this.label7.Location = new System.Drawing.Point(3, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(1212, 50);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "label7";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DS
+            // 
+            this.DS.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DS.Location = new System.Drawing.Point(3, 3);
+            this.DS.Name = "DS";
+            this.DS.Size = new System.Drawing.Size(957, 622);
+            this.DS.TabIndex = 5;
+            // 
+            // posUI2
+            // 
+            this.posUI2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.posUI2.Location = new System.Drawing.Point(0, 0);
+            this.posUI2.Name = "posUI2";
+            this.posUI2.Size = new System.Drawing.Size(461, 621);
+            this.posUI2.TabIndex = 0;
+            // 
+            // posUI1
+            // 
+            this.posUI1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.posUI1.Location = new System.Drawing.Point(0, 0);
+            this.posUI1.Name = "posUI1";
+            this.posUI1.Size = new System.Drawing.Size(461, 621);
+            this.posUI1.TabIndex = 0;
             // 
             // frmRecipe
             // 
@@ -548,5 +575,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -1865,8 +1865,8 @@ namespace JzDisplay.OPSpace
                         break;
                     case ControlMode.MoveMaxBlob:
                         PointF ptfmappingtemp = getMoveBlobOffset(ptfmapping, out jRotatedRectangleF);
-                        ptOffset = new PointF(-(float)((ptfmappingtemp.X - ptOrgCenter.X)),
-                                                                  -(float)((ptfmappingtemp.Y - ptOrgCenter.Y)));
+                        //ptOffset = new PointF(-(float)((ptfmappingtemp.X - ptOrgCenter.X)),
+                        //                                          -(float)((ptfmappingtemp.Y - ptOrgCenter.Y)));
                         //OnClickDebug(ptOffset, e.Button);
                         FireDisplayMessage(new DisplayEventArgs("MoveMaxBlob", jRotatedRectangleF));
                         break;
@@ -2593,7 +2593,9 @@ namespace JzDisplay.OPSpace
             for (int i = 0; i < icount; i++)
             {
                 int iArea = JetBlobFeature.ComputeIntegerFeature(jetBlob, i, JBlobIntFeature.Area);
-                if (iArea < MyControlPara.CropSize * MyControlPara.CropSize / 6)
+                //if (iArea < MyControlPara.CropSize * MyControlPara.CropSize / 6)
+                //    continue;
+                if (iArea < MyControlPara.AreaMin || iArea > MyControlPara.AreaMax)
                     continue;
                 if (iArea > iMax)
                 {

@@ -67,6 +67,7 @@
     <Reference Include="FreeImageNET">
       <HintPath>..\Utility\DLLS\FreeImageNET.dll</HintPath>
     </Reference>
+    <Reference Include="JetEazy.QUtility, Version=2.5.6.1, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="MoveGraphLibrary">
       <HintPath>..\Utility\DLLS\MoveGraphLibrary.dll</HintPath>
     </Reference>
@@ -340,6 +341,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Utility\JetEazy.OpenCv4\JetEazy.OpenCv4.csproj">
+      <Project>{ecf19b8d-be9a-4159-8b94-defc25a59507}</Project>
+      <Name>JetEazy.OpenCv4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\JetEazy\JetEazy.csproj">
       <Project>{a24458c1-b3ac-462a-8b42-dafd1d420e19}</Project>
       <Name>JetEazy</Name>

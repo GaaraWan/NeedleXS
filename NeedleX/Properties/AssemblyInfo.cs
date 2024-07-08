@@ -36,6 +36,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.5")]
 
 /*
+ * 
+ * 20240708
+ * 1.加入自动对位算法
+ * 
  * 20240627
  * 1.加入自动流程的拟合曲线对焦算法
  * 2.加入自动流程循环测试稳定性流程

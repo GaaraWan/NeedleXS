@@ -46,6 +46,8 @@ namespace NeedleX.FormSpace
         Mover myStaticMovers = new Mover();
 
         bool IsNeedToChange = false;
+        bool IsAlignRunning = false;
+        AlignImageCenterClass alignImageCenterClass = null;
 
         Button btnOK;
         Button btnCancel;
@@ -64,6 +66,9 @@ namespace NeedleX.FormSpace
         ListBox lstCollectData;
         Button btnControlAxis;
         Button btnGoFocusPos;
+        Button btnAlignImage;
+
+        Label lblAlignMsg;
 
         #endregion
 
@@ -113,6 +118,8 @@ namespace NeedleX.FormSpace
             btnOutputData = button9;
             btnControlAxis = button10;
             btnGoFocusPos = button11;
+            btnAlignImage = button12;
+            lblAlignMsg = label7;
 
             btnOK.Click += BtnOK_Click;
             btnCancel.Click += BtnCancel_Click;
@@ -125,6 +132,7 @@ namespace NeedleX.FormSpace
             btnOutputData.Click += BtnOutputData_Click;
             btnControlAxis.Click += BtnControlAxis_Click;
             btnGoFocusPos.Click += BtnGoFocusPos_Click;
+            btnAlignImage.Click += BtnAlignImage_Click;
 
             numExpo.ValueChanged += NumExpo_ValueChanged;
             numGain.ValueChanged += NumGain_ValueChanged;
@@ -137,6 +145,8 @@ namespace NeedleX.FormSpace
             ctlPosClasses[1].VisableControl(false);
             ctlPosClasses[0].OnMessage += FrmRecipe_OnMessage;
 
+            alignImageCenterClass = new AlignImageCenterClass();
+            lblAlignMsg.Text = "";
             init_CboList();
             writeDSControlPara();
             pgCamParaOther.PropertyValueChanged += PgCamParaOther_PropertyValueChanged;
@@ -147,6 +157,11 @@ namespace NeedleX.FormSpace
             mTimer.Interval = 50;
             mTimer.Enabled = true;
             mTimer.Tick += MTimer_Tick;
+        }
+
+        private void BtnAlignImage_Click(object sender, EventArgs e)
+        {
+            IsAlignRunning = !IsAlignRunning;
         }
 
         private void BtnGoFocusPos_Click(object sender, EventArgs e)
@@ -228,6 +243,9 @@ namespace NeedleX.FormSpace
 
         private void MTimer_Tick(object sender, EventArgs e)
         {
+            btnAlignImage.BackColor = (IsAlignRunning ? Color.Red : Color.FromArgb(192, 255, 192));
+            //lblAlignMsg.Text = (IsAlignRunning ? "" : "未开启对位");
+            updateLabelMsg((IsAlignRunning ? "" : "未开启对位"));
             if (cboCamList.SelectedIndex < 0)
                 return;
             int index = cboCamList.SelectedIndex;
@@ -237,10 +255,22 @@ namespace NeedleX.FormSpace
             {
                 bmpOperate[index].Dispose();
                 bmpOperate[index] = new Bitmap(bmp);
-                DS.ReplaceDisplayImage(bmpOperate[index]);
+
+                if (IsAlignRunning)
+                {
+                    alignImageCenterClass.bmpInput = bmp;
+                    alignImageCenterClass.Run();
+                    string _msg = $"{(alignImageCenterClass.IsCheckMove() ? "!需要移动" : "对位正确")} 距离误差:{alignImageCenterClass.Distance.ToString("0.000000")}";
+                    _msg += $" 移动X:{alignImageCenterClass.MotorOffset.X.ToString("0.000000")} 移动Y:{alignImageCenterClass.MotorOffset.Y.ToString("0.000000")}";
+                    updateLabelMsg(_msg);
+                    DS.ReplaceDisplayImage(alignImageCenterClass.bmpResult);
+                }
+                else
+                    DS.ReplaceDisplayImage(bmpOperate[index]);
 
             }
             btnCamContinue.BackColor = Color.Red;
+
         }
 
         private void BtnCamContinue_Click(object sender, EventArgs e)
@@ -323,7 +353,17 @@ namespace NeedleX.FormSpace
         #endregion
 
         #region PRIVATE WINDOWS
-
+        void updateLabelMsg(string msg)
+        {
+            lblAlignMsg.Text = msg;
+            if (msg.Length > 0)
+            {
+                if (msg[0] == '!')
+                    lblAlignMsg.ForeColor = Color.Red;
+                else
+                    lblAlignMsg.ForeColor = Color.Green;
+            }
+        }
         void FillDisplay()
         {
             //txttr1y.Text = RecipeTrayClass.Instance.Track_PosY_org[0].ToString();
@@ -579,6 +619,7 @@ namespace NeedleX.FormSpace
             int index = cboCamList.SelectedIndex;
             //ControlClass ctrlTemp = new ControlClass(RecipeNeedleClass.Instance.camparaClassArray[index].ToString());
             pgCamParaOther.SelectedObject = RecipeNeedleClass.Instance.camparaClassArray[index];
+            alignImageCenterClass.SetControlPara(RecipeNeedleClass.Instance.camparaClassArray[index].ToString());
             DS.SetControlPara(RecipeNeedleClass.Instance.camparaClassArray[index].ToString());
         }
         private NeedleXYZ goFocusPosition(int icamNo)

@@ -190,7 +190,7 @@ namespace NeedleX.ProcessSpace
                                 m_CurrentXYZ = new NeedleXYZ(CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex]);
                                 //转换校正的点
                                 m_CmdCurrent = MyAlignCalibration.OutputStr(CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex]);
-                                
+                                m_AdjustXYZ = new NeedleXYZ(m_CmdCurrent);
                                 MACHINECollection.MotorSpeed();
                                 MACHINE.GoPosition(m_CmdCurrent, true);
 
@@ -219,7 +219,7 @@ namespace NeedleX.ProcessSpace
                         {
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-                                FocusProcess.Instance.SetFocusRecipe((float)m_AdjustXYZ.Z, eFocusMode: 1);
+                                FocusProcess.Instance.SetFocusRecipe((float)m_CurrentXYZ.Z, eFocusMode: 1);
                                 FocusProcess.Instance.Start("MainOnFire");
                                 m_Stopwatch.Restart();
 

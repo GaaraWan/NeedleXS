@@ -97,6 +97,16 @@ namespace NeedleX.ProcessSpace
                                         Process.ID = 15;
                                         break;
                                     case Eazy_Project_III.AlignResult.NotMove:
+                                        m_CmdCurrent = MACHINE.GetCurrentPositionOffset(MyAlignImageCenter.MotorOffset.X, MyAlignImageCenter.MotorOffset.Y);
+                                        //MACHINECollection.MotorSpeed();
+                                        MACHINE.GoPosition(m_CmdCurrent, false);
+
+                                        strings = m_CmdCurrent.Split(',');
+                                        AlignPointFResult = new PointF(float.Parse(strings[0]), float.Parse(strings[1]));
+
+                                        Process.NextDuriation = NextDurtimeTmp;
+                                        Process.ID = 9999;
+                                        break;
                                     case Eazy_Project_III.AlignResult.NotFound:
                                         Process.NextDuriation = NextDurtimeTmp;
                                         Process.ID = 9999;

@@ -8,6 +8,8 @@ using JetEazy.ControlSpace;
 using JetEazy.DBSpace;
 using JetEazy.Interface;
 using JetEazy.OPSpace;
+using JzDisplay.OPSpace;
+using NeedleX.OPSpace;
 using System;
 using System.Collections;
 using System.Drawing;
@@ -29,7 +31,7 @@ namespace Traveller106
         public static bool IsSilentMode = IsNoUseIO;     //抑制 Buzzer
         public static bool IsAutoLogin = true;     //抑制 Buzzer
 
-        public static string VersionDate = "2024/07/08";
+        public static string VersionDate = "2024/07/09";
 
         public static VersionEnum VERSION = VersionEnum.TRAVELLER;
         public static OptionEnum OPTION = OptionEnum.MAIN_NEEDLE;
@@ -144,6 +146,11 @@ namespace Traveller106
         public static MachineCollectionClass MACHINECollection;
         //public static GdxCameraDpiCalibrator[] CAMDpi_Cali;
         public static IxLineScanCam IxLineScan = null;
+
+        public static AlignImageCenterClass MyAlignImageCenter = new AlignImageCenterClass();
+        public static AlignResult MyAlignResult { get; set; } = AlignResult.NotMove;
+        public static AlignCalibration MyAlignCalibration = new AlignCalibration();
+        public static PointF AlignPointFResult { get; set; } = new PointF();
 
 
         public static AccDBClass ACCDB;

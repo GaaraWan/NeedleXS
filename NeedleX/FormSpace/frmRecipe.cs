@@ -260,8 +260,20 @@ namespace NeedleX.FormSpace
                 {
                     alignImageCenterClass.bmpInput = bmp;
                     alignImageCenterClass.Run();
-                    string _msg = $"{(alignImageCenterClass.IsCheckMove() ? "!需要移动" : "对位正确")} 距离误差:{alignImageCenterClass.Distance.ToString("0.000000")}";
-                    _msg += $" 移动X:{alignImageCenterClass.MotorOffset.X.ToString("0.000000")} 移动Y:{alignImageCenterClass.MotorOffset.Y.ToString("0.000000")}";
+
+                    string _msg = string.Empty;
+                    int iret = alignImageCenterClass.IsCheckMove();
+                    if (iret == -1)
+                    {
+                        _msg = $"!未发现定位点";
+                    }
+                    else
+                    {
+                        _msg = $"{(iret != 0 ? "!需要移动" : "对位正确")} 距离误差:{alignImageCenterClass.Distance.ToString("0.000000")}";
+                        _msg += $" 移动X:{alignImageCenterClass.MotorOffset.X.ToString("0.000000")} 移动Y:{alignImageCenterClass.MotorOffset.Y.ToString("0.000000")}";
+
+                    }
+
                     updateLabelMsg(_msg);
                     DS.ReplaceDisplayImage(alignImageCenterClass.bmpResult);
                 }

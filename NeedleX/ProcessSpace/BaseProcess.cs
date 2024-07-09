@@ -1,11 +1,14 @@
 ﻿using Common.RecipeSpace;
+using Eazy_Project_III;
 using JetEazy.Interface;
+using JzDisplay.OPSpace;
 using System;
 using System.Drawing;
 using System.Threading;
 using Traveller106;
 using VsCommon.ControlSpace;
 using VsCommon.ControlSpace.MachineSpace;
+using NeedleX.OPSpace;
 
 namespace NeedleX.ProcessSpace
 {
@@ -87,8 +90,26 @@ namespace NeedleX.ProcessSpace
         {
             get { return RecipeNeedleClass.Instance; }
         }
-
-
+        protected AlignImageCenterClass MyAlignImageCenter
+        {
+            get { return Universal.MyAlignImageCenter; }
+            //set { Universal.MyAlignImageCenter = value; }
+        }
+        protected AlignResult MyAlignResult
+        {
+            get { return Universal.MyAlignResult; }
+            set { Universal.MyAlignResult = value; }
+        }
+        protected AlignCalibration MyAlignCalibration
+        {
+            get { return Universal.MyAlignCalibration; }
+            //set { Universal.MyAlignCalibration = value; }
+        }
+        protected PointF AlignPointFResult
+        {
+            get { return Universal.AlignPointFResult; }
+            set { Universal.AlignPointFResult = value; }
+        }
 
         #endregion
 

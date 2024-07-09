@@ -417,6 +417,10 @@ namespace NeedleX.UISpace.MainSpace
         {
             get { return AutoRunStabilizeProcess.Instance; }
         }
+        BaseProcess m_mainalignprocess
+        {
+            get { return MainAlignProcess.Instance; }
+        }
 
         void StopAllProcesses(string reason = "")
         {
@@ -425,6 +429,7 @@ namespace NeedleX.UISpace.MainSpace
             m_focusprocess.Stop();
             m_stablizeprocess.Stop();
             m_autorunstabilizeprocess.Stop();
+            m_mainalignprocess.Stop();
 
             switch (reason)
             {
@@ -454,19 +459,38 @@ namespace NeedleX.UISpace.MainSpace
             m_focusprocess.OnCompleted += process_OnCompleted;
             m_stablizeprocess.OnCompleted += process_OnCompleted;
             m_autorunstabilizeprocess.OnCompleted += process_OnCompleted;
+            m_mainalignprocess.OnCompleted += process_OnCompleted;
 
             ((MainProcess)m_mainprocess).OnLiveImage += process_OnLiveImage;
             ((FocusProcess)m_focusprocess).OnLiveImage += process_OnLiveImage;
             m_stablizeprocess.OnLiveImage += process_OnLiveImage;
+            m_mainalignprocess.OnLiveImage += process_OnLiveImage;
 
             m_mainprocess.OnMessage += handle_main_process_completed;
             m_focusprocess.OnMessage += handle_focus_process_completed;
             m_autorunstabilizeprocess.OnMessage += handle_autorunstabilizeprocess_completed;
+            m_mainalignprocess.OnMessage += handle_mainalignprocess_OnMessage;
         }
 
-       
-
-
+        private void handle_mainalignprocess_OnMessage(object sender, ProcessEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                EventHandler<ProcessEventArgs> h = handle_mainalignprocess_OnMessage;
+                BeginInvoke(h, sender, e);
+            }
+            else
+            {
+                if (e.Message.IndexOf("AlignMsg") > -1)
+                {
+                    if (e.Tag != null)
+                    {
+                        string msg = e.Tag as string;
+                        CommonLogClass.Instance.LogMessage(msg);
+                    }
+                }
+            }
+        }
 
         //private void M_mainprocess_OnMessage(object sender, ProcessEventArgs e)
         //{
@@ -500,6 +524,7 @@ namespace NeedleX.UISpace.MainSpace
 
         void TickAllProcesses()
         {
+            m_mainalignprocess.Tick();
             m_BuzzerProcess.Tick();
             m_resetprocess.Tick();
             m_mainprocess.Tick();
@@ -626,6 +651,15 @@ namespace NeedleX.UISpace.MainSpace
                 {
                     JzViewer.Invoke_ClrTable();
                     progressBar.Value = 0;
+                }
+                else if (e.Message.IndexOf("CallMsg") > -1)
+                {
+                    if (e.Tag != null)
+                    {
+                        string msg = e.Tag as string;
+                        CommonLogClass.Instance.LogMessage(msg);
+                    }
+
                 }
             }
         }
@@ -838,7 +872,9 @@ namespace NeedleX.UISpace.MainSpace
             //        SetSeriousAlarms1();
             //    }
             //}
-            if (m_stablizeprocess.IsOn)
+            if (m_mainalignprocess.IsOn)
+                lblState.Text = "自动对位测试中 " + m_mainalignprocess.ID.ToString();
+            else if (m_stablizeprocess.IsOn)
                 lblState.Text = "稳定性测试中 " + m_stablizeprocess.ID.ToString();
             else if (m_focusprocess.IsOn)
                 lblState.Text = "自动对焦中 " + m_focusprocess.ID.ToString();

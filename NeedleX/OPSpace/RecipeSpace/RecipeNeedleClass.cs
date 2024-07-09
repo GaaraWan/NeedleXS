@@ -227,6 +227,11 @@ namespace Common.RecipeSpace
         [DisplayName("使用相机编号")]
         [Browsable(true)]
         public int CamNumberNo { get; set; } = 0;
+        [CategoryAttribute(_Cat2), DescriptionAttribute("即对位使用的相机编号")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        [DisplayName("定位相机编号")]
+        [Browsable(true)]
+        public int CamAlignNumberNo { get; set; } = 0;
 
         [CategoryAttribute(_Cat2), DescriptionAttribute("即稳定性测试次数")]
         //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
@@ -244,6 +249,7 @@ namespace Common.RecipeSpace
         {
             int i = 0;
 
+            CamAlignNumberNo = int.Parse(ReadINIValue("Basic Control", "CamAlignNumberNo", CamAlignNumberNo.ToString(), INIFILE));
             CamNumberNo = int.Parse(ReadINIValue("Basic Control", "CamNumberNo", CamNumberNo.ToString(), INIFILE));
             TestCount = int.Parse(ReadINIValue("Basic Control", "TestCount", TestCount.ToString(), INIFILE));
             StayTimeMs = int.Parse(ReadINIValue("Basic Control", "StayTimeMs", StayTimeMs.ToString(), INIFILE));
@@ -312,6 +318,7 @@ namespace Common.RecipeSpace
         }
         public override void Save()
         {
+            WriteINIValue("Basic Control", "CamAlignNumberNo", CamAlignNumberNo.ToString(), INIFILE);
             WriteINIValue("Basic Control", "CamNumberNo", CamNumberNo.ToString(), INIFILE);
             WriteINIValue("Basic Control", "TestCount", TestCount.ToString(), INIFILE);
             WriteINIValue("Basic Control", "StayTimeMs", StayTimeMs.ToString(), INIFILE);

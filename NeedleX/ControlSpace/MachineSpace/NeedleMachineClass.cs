@@ -602,6 +602,10 @@ namespace VsCommon.ControlSpace.MachineSpace
             PLCMOTIONCollection[1].Go(PLCMOTIONCollection[1].READYPOSITION);
             PLCMOTIONCollection[2].Go(PLCMOTIONCollection[2].READYPOSITION);
         }
+        public string GetCurrentPositionOffset(float offsetX, float offsetY, float offsetZ = 0)
+        {
+            return $"{PLCMOTIONCollection[0].PositionNow + offsetX},{PLCMOTIONCollection[1].PositionNow + offsetY},{PLCMOTIONCollection[2].PositionNow + offsetZ}";
+        }
         public void GoPosition(string opstr, bool zgo = false)
         {
             //zgo = true;

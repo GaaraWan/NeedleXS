@@ -1,6 +1,7 @@
 ﻿using Common.RecipeSpace;
 using JetEazy.BasicSpace;
 using JetEazy.Interface;
+using NeedleX.OPSpace;
 using NeedleX.UISpace;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace NeedleX.ProcessSpace
         int m_StayTimeMs = 300;
 
         NeedleXYZ m_CurrentXYZ = new NeedleXYZ();
+        NeedleXYZ m_AdjustXYZ = new NeedleXYZ();
         XRowEventArgs xRowEventArgs = new XRowEventArgs();
 
         #endregion
@@ -74,7 +76,14 @@ namespace NeedleX.ProcessSpace
                         MACHINE.PLCIO.SetLedValue(0, (int)RecipeNeedle.GetCamLedValue(0));
                         FireMessage(new ProcessEventArgs($"ResetData."));
 
+                        MyAlignCalibration.Reset();
                         Traveller106.Universal.DEBUGRESULTPATH = $"D:\\JETEAZY\\{Traveller106.Universal.VEROPT}\\DEBUG\\Main_{JzTimes.DateTimeSerialString}";
+
+                        if (m_CmdCount < 4)
+                        {
+                            Process.NextDuriation = 500;
+                            Process.ID = 9998;
+                        }
 
                         break;
 
@@ -94,8 +103,10 @@ namespace NeedleX.ProcessSpace
                             }
                             else
                             {
+                                int iret = MyAlignCalibration.Run();
+                                FireMessage(new ProcessEventArgs($"CallMsg.", $"{(iret == 0 ? "校正成功" : "校正失败")}"));
                                 //定位完成 开始测试针点位置
-                                Process.NextDuriation = 100;
+                                Process.NextDuriation = 500;
                                 Process.ID = 20;
                             }
                         }
@@ -115,13 +126,46 @@ namespace NeedleX.ProcessSpace
                         {
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-                                using (Bitmap bmp = snapshot_image(GetCamera(0)))
-                                {
-                                    FireLiveImaging(bmp);
-                                }
+
+                                MainAlignProcess.Instance.Start();
+
+                                //using (Bitmap bmp = snapshot_image(GetCamera(0)))
+                                //{
+                                //    FireLiveImaging(bmp);
+                                //}
 
                                 Process.NextDuriation = 500;
-                                Process.ID = 10;
+                                Process.ID = 1520;
+                            }
+                        }
+                        break;
+                    case 1520:
+                        if (Process.IsTimeup)
+                        {
+                            if (!MainAlignProcess.Instance.IsOn)
+                            {
+                                switch (MyAlignResult)
+                                {
+                                    case Eazy_Project_III.AlignResult.Move:
+                                    case Eazy_Project_III.AlignResult.NotMove:
+
+                                        Process.NextDuriation = 500;
+                                        Process.ID = 10;
+
+                                        string[] strings = m_CmdCurrent.Split(',');
+                                        PointF pt1 = new PointF(float.Parse(strings[0]), float.Parse(strings[1]));
+
+                                        MyAlignCalibration.Add(pt1, AlignPointFResult);
+
+
+                                        break;
+                                    case Eazy_Project_III.AlignResult.NotFound:
+
+                                        Process.NextDuriation = 500;
+                                        Process.ID = 9999;
+
+                                        break;
+                                }
                             }
                         }
                         break;
@@ -143,17 +187,19 @@ namespace NeedleX.ProcessSpace
                                 Process.NextDuriation = 500;
                                 Process.ID = 30;
 
-                                m_CmdCurrent = CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex];
+                                m_CurrentXYZ = new NeedleXYZ(CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex]);
+                                //转换校正的点
+                                m_CmdCurrent = MyAlignCalibration.OutputStr(CoarsePositioningClass.Instance.CoarsePosList[m_CmdIndex]);
+                                
                                 MACHINECollection.MotorSpeed();
                                 MACHINE.GoPosition(m_CmdCurrent, true);
-                                m_CurrentXYZ = new NeedleXYZ(m_CmdCurrent);
 
                                 m_CmdIndex++;
                             }
                             else
                             {
                                 //针点完成
-                                Process.NextDuriation = 100;
+                                Process.NextDuriation = 500;
                                 Process.ID = 40;
                             }
                         }
@@ -173,7 +219,7 @@ namespace NeedleX.ProcessSpace
                         {
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-                                FocusProcess.Instance.SetFocusRecipe((float)m_CurrentXYZ.Z, eFocusMode: 1);
+                                FocusProcess.Instance.SetFocusRecipe((float)m_AdjustXYZ.Z, eFocusMode: 1);
                                 FocusProcess.Instance.Start("MainOnFire");
                                 m_Stopwatch.Restart();
 
@@ -194,7 +240,7 @@ namespace NeedleX.ProcessSpace
 
                                 xRowEventArgs.Index = m_CmdIndex;
                                 xRowEventArgs.Org = new NeedleXYZ(m_CurrentXYZ.ToString());
-                                xRowEventArgs.Adjust = new NeedleXYZ(m_CurrentXYZ.ToString());
+                                xRowEventArgs.Adjust = new NeedleXYZ(m_AdjustXYZ.ToString());
                                 xRowEventArgs.Adjust.Z = FocusProcess.Instance.PosComplete;
                                 xRowEventArgs.ElapsedTime = m_Stopwatch.ElapsedMilliseconds / 1000.0;
 
@@ -213,9 +259,25 @@ namespace NeedleX.ProcessSpace
                             FireCompleted();
                         }
                         break;
+                    case 9998:
+                        if (Process.IsTimeup)
+                        {
+                            Process.Stop();
+                            FireMessage(new ProcessEventArgs($"CallMsg.", $"定位点个数小于4个，流程强制停止。"));
+                            FireCompleted();
+                        }
+                        break;
+                    case 9999:
+                        if (Process.IsTimeup)
+                        {
+                            Process.Stop();
+                            FireMessage(new ProcessEventArgs($"CallMsg.", $"对位失败，未找到对位点。"));
+                            FireCompleted();
+                        }
+                        break;
                 }
             }
         }
-        
+
     }
 }

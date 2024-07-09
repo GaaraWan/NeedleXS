@@ -176,6 +176,7 @@
     <Compile Include="GlobalSpace\Universal.cs" />
     <Compile Include="Model\CalcModeClass.cs" />
     <Compile Include="Model\OpencvTools\CvTools.cs" />
+    <Compile Include="OPSpace\AlignCalibration.cs" />
     <Compile Include="OPSpace\RecipeSpace\RecipeBaseClass.cs" />
     <Compile Include="OPSpace\RecipeSpace\RecipeNeedleClass.cs" />
     <Compile Include="OPSpace\RecipeSpace\RecipeTrayClass.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="ProcessSpace\BaseProcess.cs" />
     <Compile Include="ProcessSpace\BuzzerProcess.cs" />
     <Compile Include="ProcessSpace\FocusProcess.cs" />
+    <Compile Include="ProcessSpace\MainAlignProcess.cs" />
     <Compile Include="ProcessSpace\MainDSLiveProcess.cs" />
     <Compile Include="ProcessSpace\MainProcess.cs" />
     <Compile Include="ProcessSpace\ResetProcess.cs" />

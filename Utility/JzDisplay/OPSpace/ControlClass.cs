@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace JzDisplay.OPSpace
 {
@@ -137,11 +138,15 @@ namespace JzDisplay.OPSpace
 
     public class AlignImageCenterClass
     {
+        Bitmap bmptemp = new Bitmap(1, 1);
+
         private Bitmap m_bmpInput = new Bitmap(1, 1);
         private Bitmap m_bmpResult = new Bitmap(1, 1);
         private PointF m_MotorOffset = new PointF(0, 0);
         ControlClass MyControlPara = new ControlClass();
         private double m_Distance = 0;
+        private bool m_WholeImage = false;
+        private bool m_NoFoundAlign = false;
         public AlignImageCenterClass() { }
         public Bitmap bmpInput
         {
@@ -169,49 +174,89 @@ namespace JzDisplay.OPSpace
         {
             get { return m_Distance; }
         }
+        public bool WholeImage
+        {
+            get { return m_WholeImage; }
+            set { m_WholeImage = value; }
+        }
         public void SetControlPara(string eStr)
         {
             if (!string.IsNullOrEmpty(eStr))
                 MyControlPara.FromString(eStr);
         }
-        public bool IsCheckMove()
+        public int IsCheckMove()
         {
-            bool ret = true;
-
-            m_Distance = GetPointLength(m_MotorOffset, new PointF(0, 0));
-            if (m_Distance >= -Math.Abs(MyControlPara.AlignCenterError) && m_Distance <= Math.Abs(MyControlPara.AlignCenterError))
-                ret = false;
-
+            int ret = 0;
+            if (m_NoFoundAlign)
+                ret = -1;
+            else
+            {
+                m_Distance = GetPointLength(m_MotorOffset, new PointF(0, 0));
+                if (m_Distance >= -Math.Abs(MyControlPara.AlignCenterError) && m_Distance <= Math.Abs(MyControlPara.AlignCenterError))
+                    ret = 0;
+                else
+                    ret = -2;
+            }
             return ret;
         }
         public int Run()
         {
+            m_NoFoundAlign = true;
             PointF _imageCenter = new PointF(bmpInput.Width / 2, bmpInput.Height / 2);
-            JRotatedRectangleF _jRotatedRectangleF = new JRotatedRectangleF();
-            PointF _imageAlignPos = getMoveBlobOffset(_imageCenter, out _jRotatedRectangleF);
-            PointF ptOffset = new PointF(-(float)((_jRotatedRectangleF.fCX - _imageCenter.X)),
-                                                            -(float)((_jRotatedRectangleF.fCY - _imageCenter.Y)));
+            List<JRotatedRectangleF> _jRotatedRectangleF = new List<JRotatedRectangleF>();
+            getMoveBlobOffset(_imageCenter, out _jRotatedRectangleF);
 
-            m_MotorOffset = new PointF((float)(ptOffset.X * MyControlPara.Resolution),
+            if (_jRotatedRectangleF.Count > 0)
+            {
+                m_NoFoundAlign = false;
+                double iMin = 10000000;
+                int foundindex = 0;
+                int iindex = 0;
+                //找离中心最近的blob
+                foreach (JRotatedRectangleF rect in _jRotatedRectangleF)
+                {
+                    PointF ptblob = new PointF((float)((rect.fCX)), (float)((rect.fCY)));
+                    double _len = GetPointLength(ptblob, _imageCenter);
+                    if (_len < iMin)
+                    {
+                        iMin = _len;
+                        foundindex = iindex;
+                    }
+                    iindex++;
+                }
+                PointF ptOffset = new PointF(-(float)((_jRotatedRectangleF[foundindex].fCX - _imageCenter.X)),
+                                                           -(float)((_jRotatedRectangleF[foundindex].fCY - _imageCenter.Y)));
+                m_MotorOffset = new PointF((float)(ptOffset.X * MyControlPara.Resolution),
                                                                  (float)(ptOffset.Y * MyControlPara.Resolution));
-
-
+            }
+            else
+            {
+                m_MotorOffset = new PointF(0, 0);
+            }
             return 0;
         }
         #region Cal Funtion
 
-        private PointF getMoveBlobOffset(PointF ptLocation, out JRotatedRectangleF jRotatedRectangleF)
+        private void getMoveBlobOffset(PointF ptLocation, out List<JRotatedRectangleF> jRotatedRectangleFlist)
         {
-            PointF ptret = new PointF(0, 0);
-            jRotatedRectangleF = new JRotatedRectangleF();
+            //PointF ptret = new PointF(0, 0);
+            jRotatedRectangleFlist = new List<JRotatedRectangleF>();
 
+            jRotatedRectangleFlist.Clear();
             m_bmpResult.Dispose();
             m_bmpResult = new Bitmap(bmpInput);
 
             //点击的位置扩成矩形框
             Rectangle rectLocation = SimpleRect(ptLocation, MyControlPara.CropSize / 2);
             BoundRect(ref rectLocation, m_bmpInput.Size);
-            Bitmap bmptemp = m_bmpInput.Clone(rectLocation, PixelFormat.Format24bppRgb);
+
+            if (m_WholeImage)
+            {
+                rectLocation = new Rectangle(0, 0, m_bmpInput.Width, m_bmpInput.Height);
+            }
+
+            bmptemp.Dispose();
+            bmptemp = m_bmpInput.Clone(rectLocation, PixelFormat.Format24bppRgb);
             JetGrayImg grayimage = new JetGrayImg(bmptemp);
             JetImgproc.Threshold(grayimage, MyControlPara.ThresholdValue, grayimage);
             JetBlob jetBlob = new JetBlob();
@@ -227,6 +272,7 @@ namespace JzDisplay.OPSpace
                 jetBlob.Labeling(grayimage, JConnexity.Connexity4, JBlobLayer.WhiteLayer);
             int icount = jetBlob.BlobCount;
             int iMax = -10000000;
+            List<JRotatedRectangleF> listtemp = new List<JRotatedRectangleF>();
             for (int i = 0; i < icount; i++)
             {
                 int iArea = JetBlobFeature.ComputeIntegerFeature(jetBlob, i, JBlobIntFeature.Area);
@@ -234,44 +280,68 @@ namespace JzDisplay.OPSpace
                 //    continue;
                 if (iArea < MyControlPara.AreaMin || iArea > MyControlPara.AreaMax)
                     continue;
-                if (iArea > iMax)
-                {
-                    iMax = iArea;
-                    JRotatedRectangleF jetrect = JetBlobFeature.ComputeMinRectangle(jetBlob, i);
-                    ptret = new PointF((float)jetrect.fCX, (float)jetrect.fCY);
-                    jRotatedRectangleF.fCX = jetrect.fCX;
-                    jRotatedRectangleF.fCY = jetrect.fCY;
-                    jRotatedRectangleF.fWidth = jetrect.fWidth;
-                    jRotatedRectangleF.fHeight = jetrect.fHeight;
-                    jRotatedRectangleF.fAngle = jetrect.fAngle;
-                }
+                JRotatedRectangleF jetrect = JetBlobFeature.ComputeMinRectangle(jetBlob, i);
+                listtemp.Add(jetrect);
+                //if (iArea > iMax)
+                //{
+                //    iMax = iArea;
+                //    JRotatedRectangleF jetrect = JetBlobFeature.ComputeMinRectangle(jetBlob, i);
+                //    //ptret = new PointF((float)jetrect.fCX, (float)jetrect.fCY);
+                //    //jRotatedRectangleF.fCX = jetrect.fCX;
+                //    //jRotatedRectangleF.fCY = jetrect.fCY;
+                //    //jRotatedRectangleF.fWidth = jetrect.fWidth;
+                //    //jRotatedRectangleF.fHeight = jetrect.fHeight;
+                //    //jRotatedRectangleF.fAngle = jetrect.fAngle;
+
+                //    listtemp.Add(jetrect);
+                //}
             }
 
-            ptret.X += rectLocation.X;
-            ptret.Y += rectLocation.Y;
+            //ptret.X += rectLocation.X;
+            //ptret.Y += rectLocation.Y;
 
-            jRotatedRectangleF.fCX += rectLocation.X;
-            jRotatedRectangleF.fCY += rectLocation.Y;
+            //jRotatedRectangleF.fCX += rectLocation.X;
+            //jRotatedRectangleF.fCY += rectLocation.Y;
 
-            Graphics g = Graphics.FromImage(m_bmpResult);
-            if (MyControlPara.IsShowThresholdImage)
-                g.DrawImage(grayimage.ToBitmap(), rectLocation);
-            RectangleF _rectF = SimpleRectF(ptret, (float)(jRotatedRectangleF.fWidth / 2), (float)(jRotatedRectangleF.fHeight / 2));
-            //转换矩形的四个角
-            PointF[] myPts = RectToPointF(_rectF, -jRotatedRectangleF.fAngle);
-            Pen p = new Pen(Color.Lime, 3);
-            p.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-            Pen p2 = new Pen(Color.Red, 3);
-            //pBottom.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            g.DrawRectangle(p, rectLocation);
-            g.DrawLine(p2, myPts[0], myPts[1]);
-            g.DrawLine(p2, myPts[0], myPts[2]);
-            g.DrawLine(p2, myPts[1], myPts[3]);
-            g.DrawLine(p2, myPts[2], myPts[3]);
+            if (listtemp.Count > 0)
+            {
+                Graphics g = Graphics.FromImage(m_bmpResult);
+                if (MyControlPara.IsShowThresholdImage)
+                    g.DrawImage(grayimage.ToBitmap(), rectLocation);
+                Pen p = new Pen(Color.Lime, 3);
+                p.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+                g.DrawRectangle(p, rectLocation);
 
-            g.Dispose();
+                Pen p2 = new Pen(Color.Red, 3);
 
-            return ptret;
+                foreach (JRotatedRectangleF rect in listtemp)
+                {
+                    rect.fCX += rectLocation.X;
+                    rect.fCY += rectLocation.Y;
+
+                    RectangleF _rectF = SimpleRectF(new PointF((float)rect.fCX, (float)rect.fCY),
+                                                                          (float)(rect.fWidth / 2), (float)(rect.fHeight / 2));
+                    //转换矩形的四个角
+                    PointF[] myPts = RectToPointF(_rectF, -rect.fAngle);
+                    g.DrawLine(p2, myPts[0], myPts[1]);
+                    g.DrawLine(p2, myPts[0], myPts[2]);
+                    g.DrawLine(p2, myPts[1], myPts[3]);
+                    g.DrawLine(p2, myPts[2], myPts[3]);
+
+                    JRotatedRectangleF jRotatedRectangleF = new JRotatedRectangleF();
+                    jRotatedRectangleF.fCX = rect.fCX;
+                    jRotatedRectangleF.fCY = rect.fCY;
+                    jRotatedRectangleF.fWidth = rect.fWidth;
+                    jRotatedRectangleF.fHeight = rect.fHeight;
+                    jRotatedRectangleF.fAngle = rect.fAngle;
+
+                    jRotatedRectangleFlist.Add(jRotatedRectangleF);
+                }
+
+                g.Dispose();
+            }
+
+            //return ptret;
         }
         private void BoundRect(ref Rectangle InnerRect, Size BoundSize)
         {

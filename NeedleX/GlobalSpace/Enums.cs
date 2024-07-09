@@ -42,14 +42,14 @@ namespace Eazy_Project_III
     public enum ProductMode : int
     {
         [Description("預設模式")]
-        DEFAULT =0,
+        DEFAULT = 0,
         [Description("僅做2模式")]
-        ONLY2 =1,
+        ONLY2 = 1,
     }
 
     public enum TrackArea : int
     {
-        COUNT=4,
+        COUNT = 4,
 
         [Description("轨道PASS区")]
         TrackPASS = 0,
@@ -64,7 +64,7 @@ namespace Eazy_Project_III
     public enum SwicthOnOff : int
     {
 
-        COUNT=2,
+        COUNT = 2,
 
         False = 0,
         True = 1,
@@ -274,9 +274,9 @@ namespace Eazy_Project_III
     public enum InspectMode : int
     {
         [Description("检测DataMatrix")]
-        DATAMATRIX =0,
+        DATAMATRIX = 0,
         [Description("检测芯片")]
-        CHIP =1,
+        CHIP = 1,
     }
     public enum CornerNoMarkEnum : int
     {
@@ -306,6 +306,25 @@ namespace Eazy_Project_III
 
         //NONE = -1,
     }
-    
+
+    public enum AlignResult : int
+    {
+        /// <summary>
+        /// 对位完成
+        /// </summary>
+        [Description("对位完成")]
+        NotMove = 0,
+        /// <summary>
+        /// 定位失败
+        /// </summary>
+        [Description("定位失败")]
+        NotFound = -1,
+        /// <summary>
+        /// 需要定位
+        /// </summary>
+        [Description("需要定位")]
+        Move = -2,
+    }
+
 
 }

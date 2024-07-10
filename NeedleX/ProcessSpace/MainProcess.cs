@@ -241,6 +241,8 @@ namespace NeedleX.ProcessSpace
                                 xRowEventArgs.Index = m_CmdIndex;
                                 xRowEventArgs.Org = new NeedleXYZ(m_CurrentXYZ.ToString());
                                 xRowEventArgs.Adjust = new NeedleXYZ(m_AdjustXYZ.ToString());
+                                xRowEventArgs.Adjust.X = FocusProcess.Instance.PosCompleteX;
+                                xRowEventArgs.Adjust.Y = FocusProcess.Instance.PosCompleteY;
                                 xRowEventArgs.Adjust.Z = FocusProcess.Instance.PosComplete;
                                 xRowEventArgs.ElapsedTime = m_Stopwatch.ElapsedMilliseconds / 1000.0;
 

@@ -27,6 +27,8 @@ namespace NeedleX.ProcessSpace
         int m_AfMode = 1;
         int m_nextTime = 100;
         float m_PosComplete = 0;
+        float m_PosCompleteX = 0;
+        float m_PosCompleteY = 0;
 
         string GetModeName()
         {
@@ -87,6 +89,14 @@ namespace NeedleX.ProcessSpace
         public float PosComplete
         {
             get { return m_PosComplete; }
+        }
+        public float PosCompleteX
+        {
+            get { return m_PosCompleteX; }
+        }
+        public float PosCompleteY
+        {
+            get { return m_PosCompleteY; }
         }
         public void SetFocusRecipe(float eCurrentPos, float eOffset = 0.005f, int eFocusMode = 1)
         {
@@ -269,34 +279,79 @@ namespace NeedleX.ProcessSpace
 
                         Process.TimeUnit = TimeUnitEnum.ms;
                         Process.NextDuriation = 300;
-                        Process.ID = 10;
+                        Process.ID = 510;
 
-                        CommonLogClass.Instance.LogMessage("对焦开始位置=" + d1.ToString());
-                        CommonLogClass.Instance.LogMessage("对焦结束位置=" + d2.ToString());
+                        break;
 
-                        FireMessage(new ProcessEventArgs($"FocusViewVisible.", true));
-                        xCamFocus.FlyImage(true);
+                    #region 自动对位XY流程 对位完成后开始对焦测试
 
-                        xCamFocus.SetFramesPerTrigger(INI.Instance.xFramesCount);
-                        xCamFocus.SetExposure(INI.Instance.xFoucsExpo);
-                        MACHINE.PLCIO.SetPLCPosReslution(INI.Instance.xFoucsOffset);
-
-                        //if (INI.Instance.IsSaveImageOpen)
+                    case 510:
+                        if (Process.IsTimeup)
                         {
-                            xRootPath = $"{Traveller106.Universal.DEBUGRESULTPATH}\\{JzTimes.DateTimeSerialStringFFF}";
-                            if (!System.IO.Directory.Exists(xRootPath))
-                                System.IO.Directory.CreateDirectory(xRootPath);
+                            MainAlignProcess.Instance.Start();
+
+                            Process.NextDuriation = 500;
+                            Process.ID = 520;
                         }
+                        break;
+                    case 520:
+                        if (Process.IsTimeup)
+                        {
+                            if (!MainAlignProcess.Instance.IsOn)
+                            {
+                                switch (MyAlignResult)
+                                {
+                                    case Eazy_Project_III.AlignResult.Move:
+                                    case Eazy_Project_III.AlignResult.NotMove:
 
-                        m_rects.Clear();
-                        //这里添加中心位置 并 外扩一定尺寸
-                        int w = 60;
-                        int h = 60;
-                        Rectangle r = new Rectangle(1280 / 2 - w / 2, 1024 / 2 - h / 2, w, h);
-                        r.Inflate(INI.Instance.xStableInflate, INI.Instance.xStableInflate);
-                        m_rects.Add(r);
+                                        m_PosCompleteX = AlignPointFResult.X;
+                                        m_PosCompleteY = AlignPointFResult.Y;
 
+                                        break;
+                                    case Eazy_Project_III.AlignResult.NotFound:
+                                        break;
+                                }
 
+                                Process.NextDuriation = 500;
+                                Process.ID = 9;
+                            }
+                        }
+                        break;
+
+                    #endregion
+
+                    #region 自动对焦流程
+                    case 9:
+                        if (Process.IsTimeup)
+                        {
+                            Process.NextDuriation = 300;
+                            Process.ID = 10;
+
+                            CommonLogClass.Instance.LogMessage("对焦开始位置=" + d1.ToString());
+                            CommonLogClass.Instance.LogMessage("对焦结束位置=" + d2.ToString());
+
+                            FireMessage(new ProcessEventArgs($"FocusViewVisible.", true));
+                            xCamFocus.FlyImage(true);
+
+                            xCamFocus.SetFramesPerTrigger(INI.Instance.xFramesCount);
+                            xCamFocus.SetExposure(INI.Instance.xFoucsExpo);
+                            MACHINE.PLCIO.SetPLCPosReslution(INI.Instance.xFoucsOffset);
+
+                            //if (INI.Instance.IsSaveImageOpen)
+                            {
+                                xRootPath = $"{Traveller106.Universal.DEBUGRESULTPATH}\\{JzTimes.DateTimeSerialStringFFF}";
+                                if (!System.IO.Directory.Exists(xRootPath))
+                                    System.IO.Directory.CreateDirectory(xRootPath);
+                            }
+
+                            m_rects.Clear();
+                            //这里添加中心位置 并 外扩一定尺寸
+                            int w = 60;
+                            int h = 60;
+                            Rectangle r = new Rectangle(1280 / 2 - w / 2, 1024 / 2 - h / 2, w, h);
+                            r.Inflate(INI.Instance.xStableInflate, INI.Instance.xStableInflate);
+                            m_rects.Add(r);
+                        }
                         break;
                     case 10:
                         if (Process.IsTimeup)
@@ -462,6 +517,7 @@ namespace NeedleX.ProcessSpace
                             }
                         }
                         break;
+                    #endregion
 
                 }
             }

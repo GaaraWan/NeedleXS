@@ -341,6 +341,11 @@ namespace Traveller106
         [DisplayName("03.开启存储图片功能")]
         [Browsable(true), ReadOnly(false)]
         public bool IsSaveImageOpen { get; set; } = false;
+        [CategoryAttribute(X1Cat1), DescriptionAttribute("")]
+        //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
+        [DisplayName("04.存储对焦完成图片")]
+        [Browsable(true), ReadOnly(false)]
+        public bool IsSaveFocusImage { get; set; } = false;
 
         [CategoryAttribute(X1Cat1), DescriptionAttribute("")]
         //[Editor(typeof(GetPositionPropertyEditor), typeof(UITypeEditor))]
@@ -498,6 +503,7 @@ namespace Traveller106
             xReturnSpeed = int.Parse(ReadINIValue("Basic", "xReturnSpeed", xReturnSpeed.ToString(), INIFILE));
 
             xIsCCDSIM = ReadINIValue("Basic", "xIsCCDSIM", (xIsCCDSIM ? "1" : "0"), INIFILE) == "1";
+            IsSaveFocusImage = ReadINIValue("Basic", "IsSaveFocusImage", (IsSaveFocusImage ? "1" : "0"), INIFILE) == "1";
 
 
             //Rectangle rectangle = new Rectangle();rectangle.Inflate
@@ -532,7 +538,7 @@ namespace Traveller106
             WriteINIValue("Basic", "xReturnSpeed", xReturnSpeed.ToString(), INIFILE);
 
             WriteINIValue("Basic", "xIsCCDSIM", (xIsCCDSIM ? "1" : "0"), INIFILE);
-
+            WriteINIValue("Basic", "IsSaveFocusImage", (IsSaveFocusImage ? "1" : "0"), INIFILE);
 
 
         }

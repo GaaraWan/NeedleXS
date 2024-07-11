@@ -507,7 +507,7 @@ namespace NeedleX.ProcessSpace
                                     bmp = new Bitmap(xCamFocus.GetDebugIndex(focusIndex));
                                 }
 
-                                if (INI.Instance.IsSaveImageOpen)
+                                if (INI.Instance.IsSaveFocusImage)
                                     bmp.Save($"{xRootPath}\\{m_PosComplete.ToString("0.0000")}.png", System.Drawing.Imaging.ImageFormat.Png);
 
                                 FireLiveImaging(bmp);

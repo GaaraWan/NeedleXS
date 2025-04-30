@@ -83,6 +83,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="math\TestDemo_LaserDot.cs" />
     <Compile Include="trf\CxCamCoordTransform_2_PMT.cs" />
     <Compile Include="trf\CxCamCoordTransform_Bin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

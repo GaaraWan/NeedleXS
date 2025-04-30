@@ -1,4 +1,5 @@
-﻿using JetEazy.BasicSpace;
+﻿using Eazy_Project_III;
+using JetEazy.BasicSpace;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,6 +16,13 @@ namespace NeedleX.OPSpace
         PointF[,] _w = new PointF[2, 2];
 
         int m_Index = 0;
+        private AlignFuntion m_Align = AlignFuntion.Vector;
+
+        public AlignFuntion xAlignFuntion
+        {
+            get { return m_Align; }
+            set { m_Align = value; }
+        }
 
         public AlignCalibration() { }
         public void Reset()

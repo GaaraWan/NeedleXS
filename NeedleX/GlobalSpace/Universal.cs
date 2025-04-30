@@ -25,8 +25,8 @@ namespace Traveller106
 {
     public class Universal : JetEazy.Universal
     {
-        public static bool IsNoUseCCD = false;      //<<< 無效改由 ICam.ISim() 判斷
-        public static bool IsNoUseIO = false;
+        public static bool IsNoUseCCD = true;      //<<< 無效改由 ICam.ISim() 判斷
+        public static bool IsNoUseIO = true;
         public static bool IsNoUseMotor = IsNoUseIO;
         public static bool IsSilentMode = IsNoUseIO;     //抑制 Buzzer
         public static bool IsAutoLogin = true;     //抑制 Buzzer

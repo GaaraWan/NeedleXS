@@ -30,6 +30,8 @@ namespace NeedleX.ProcessSpace
 
         #region COMMON_ACCESS_TO_THE_GLOBAL_COMPONENTS
 
+        protected AlignFuntion alignFuntion = AlignFuntion.Vector;
+
         //ICam ICamForCali
         //{
         //    get { return Universal.CAMERAS[0]; }

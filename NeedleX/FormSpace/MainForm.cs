@@ -464,6 +464,11 @@ namespace Traveller106
                 case RCPStatusEnum.MODIFYCANCEL:
                     ESSUI.Disable = false;
                     break;
+                case RCPStatusEnum.DELETE:
+
+                    RCPDB.Save();
+
+                    break;
             }
         }
         //DetailForm DETAILFRM;

@@ -326,5 +326,19 @@ namespace Eazy_Project_III
         Move = -2,
     }
 
+    public enum AlignFuntion : int
+    {
+        /// <summary>
+        /// 向量(需两点)
+        /// </summary>
+        [Description("向量(需两点)")]
+        Vector = 0,
+        /// <summary>
+        /// 校正(需四点)
+        /// </summary>
+        [Description("校正(需四点)")]
+        Calibration = 1,
+    }
+
 
 }

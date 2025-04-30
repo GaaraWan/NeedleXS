@@ -275,6 +275,7 @@ namespace JetEazy
         EDIT,
         MODIFYCOMPLETE,
         MODIFYCANCEL,
+        DELETE,
 
         SHOWDETAIL,
         SHOWASSIGN,

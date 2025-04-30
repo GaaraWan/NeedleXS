@@ -79,11 +79,25 @@ namespace NeedleX.ProcessSpace
                         MyAlignCalibration.Reset();
                         Traveller106.Universal.DEBUGRESULTPATH = $"D:\\JETEAZY\\{Traveller106.Universal.VEROPT}\\DEBUG\\Main_{JzTimes.DateTimeSerialString}";
 
-                        if (m_CmdCount < 4)
+                        switch (alignFuntion)
                         {
-                            Process.NextDuriation = 500;
-                            Process.ID = 9998;
+                            case Eazy_Project_III.AlignFuntion.Vector:
+                                if (m_CmdCount < 2)
+                                {
+                                    Process.NextDuriation = 500;
+                                    Process.ID = 9997;
+                                }
+                                break;
+                            case Eazy_Project_III.AlignFuntion.Calibration:
+                                if (m_CmdCount < 4)
+                                {
+                                    Process.NextDuriation = 500;
+                                    Process.ID = 9998;
+                                }
+                                break;
                         }
+
+                        
 
                         break;
 
@@ -104,10 +118,21 @@ namespace NeedleX.ProcessSpace
                             else
                             {
                                 int iret = MyAlignCalibration.Run();
-                                FireMessage(new ProcessEventArgs($"CallMsg.", $"{(iret == 0 ? "校正成功" : "校正失败")}"));
-                                //定位完成 开始测试针点位置
-                                Process.NextDuriation = 500;
-                                Process.ID = 20;
+                                //FireMessage(new ProcessEventArgs($"CallMsg.", $"{(iret == 0 ? "校正成功" : "校正失败")}"));
+                                if (iret == 0)
+                                {
+                                    //定位完成 开始测试针点位置
+                                    Process.NextDuriation = 500;
+                                    Process.ID = 20;
+                                    FireMessage(new ProcessEventArgs($"CallMsg.", $"校正成功"));
+                                }
+                                else
+                                {
+                                    Process.Stop();
+                                    FireMessage(new ProcessEventArgs($"CallMsg.", $"校正失败"));
+                                    FireCompleted();
+                                }
+
                             }
                         }
                         break;
@@ -126,13 +151,7 @@ namespace NeedleX.ProcessSpace
                         {
                             if (MACHINE.IsOnsite(true) && MACHINE.IsOnSitePosition(m_CmdCurrent))
                             {
-
                                 MainAlignProcess.Instance.Start();
-
-                                //using (Bitmap bmp = snapshot_image(GetCamera(0)))
-                                //{
-                                //    FireLiveImaging(bmp);
-                                //}
 
                                 Process.NextDuriation = 500;
                                 Process.ID = 1520;
@@ -258,6 +277,14 @@ namespace NeedleX.ProcessSpace
                             if (!Directory.Exists(report_path))
                                 Directory.CreateDirectory(report_path);
                             FireMessage(new ProcessEventArgs($"SaveReport.", $"{report_path}\\Single_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.csv"));
+                            FireCompleted();
+                        }
+                        break;
+                    case 9997:
+                        if (Process.IsTimeup)
+                        {
+                            Process.Stop();
+                            FireMessage(new ProcessEventArgs($"CallMsg.", $"定位点个数小于2个，流程强制停止。"));
                             FireCompleted();
                         }
                         break;

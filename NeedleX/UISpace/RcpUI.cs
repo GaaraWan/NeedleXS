@@ -19,6 +19,7 @@ namespace PhotoMachine.UISpace
         {
             ADD,
             MODIFY,
+            DEL,
 
             OK,
             CANCEL,
@@ -45,6 +46,7 @@ namespace PhotoMachine.UISpace
 
         Button btnAdd;
         Button btnModify;
+        Button btnDelete;
 
         Button btnOK;
         Button btnCancel;
@@ -107,12 +109,14 @@ namespace PhotoMachine.UISpace
             btnOK = button4;
             btnCancel = button6;
             btnDetial = button3;
+            btnDelete = button5;
 
             btnAdd.Tag = TagEnum.ADD;
             btnModify.Tag = TagEnum.MODIFY;
             btnOK.Tag = TagEnum.OK;
             btnCancel.Tag = TagEnum.CANCEL;
             btnDetial.Tag = TagEnum.DETIAL;
+            btnDelete.Tag = TagEnum.DEL;
 
 
             btnAdd.Click += new EventHandler(btn_Click);
@@ -120,6 +124,7 @@ namespace PhotoMachine.UISpace
             btnOK.Click += new EventHandler(btn_Click);
             btnCancel.Click += new EventHandler(btn_Click);
             btnDetial.Click += new EventHandler(btn_Click);
+            btnDelete.Click += new EventHandler(btn_Click);
             
             //SizeChanged += RcpUI_SizeChanged;
 
@@ -167,6 +172,9 @@ namespace PhotoMachine.UISpace
                 case TagEnum.MODIFY:
                     Modify();
                     break;
+                case TagEnum.DEL:
+                    Delete();
+                    break;
                 case TagEnum.OK:
                     ModifyComplete();
                     break;
@@ -193,6 +201,42 @@ namespace PhotoMachine.UISpace
 
             RCPDB.Backup();
             DBStatus = DBStatusEnum.MODIFY;
+        }
+        void Delete()
+        {
+            if (RCPItemNow.Index == 0)
+            {
+                JetEazy.BasicSpace.VsMSG.Instance.Warning("系统参数无法删除！");
+                return;
+            }
+
+            if (JetEazy.BasicSpace.VsMSG.Instance.Question("是否要删除参数？") == DialogResult.OK)
+            {
+                int i = 0;
+
+                foreach (RCPItemClass rcpitem in RCPDB.RCPItemList)
+                {
+                    if (rcpitem.Index == RCPDB.Indicator)
+                    {
+                        RCPDB.RCPItemList.RemoveAt(i);
+                        break;
+                    }
+                    i++;
+                }
+
+                if (RCPDB.RCPItemList.Count == i)
+                {
+                    RCPDB.Indicator = RCPDB.RCPItemLast.Index;
+                }
+                else
+                {
+                    RCPDB.Indicator = RCPDB.RCPItemList[i].Index;
+                }
+                FillDisplay(true);
+
+                OnTrigger(RCPStatusEnum.MODIFYCOMPLETE);
+                OnTrigger(RCPStatusEnum.DELETE);
+            }
         }
         void ModifyComplete()
         {
@@ -311,6 +355,7 @@ namespace PhotoMachine.UISpace
 
                         btnAdd.Visible = false;
                         btnModify.Visible = false;
+                        btnDelete.Visible = false;
 
                         btnOK.Visible = true;
                         btnCancel.Visible = true;
@@ -321,6 +366,7 @@ namespace PhotoMachine.UISpace
 
                         btnAdd.Visible = true;
                         btnModify.Visible = true;
+                        btnDelete.Visible = true;
 
                         btnOK.Visible = false;
                         btnCancel.Visible = false;

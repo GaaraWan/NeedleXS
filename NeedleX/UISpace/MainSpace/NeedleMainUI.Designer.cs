@@ -44,6 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -76,7 +77,9 @@
             this.DS1 = new JzDisplay.UISpace.DispUI();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button16 = new System.Windows.Forms.Button();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,6 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -270,6 +275,17 @@
             this.pnlButtons.Size = new System.Drawing.Size(629, 207);
             this.pnlButtons.TabIndex = 24;
             // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button16.Location = new System.Drawing.Point(225, 27);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(105, 50);
+            this.button16.TabIndex = 19;
+            this.button16.Text = "全流程稳定性";
+            this.button16.UseVisualStyleBackColor = false;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -348,15 +364,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tabControl3);
             this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Controls.Add(this.button15);
-            this.panel1.Controls.Add(this.button14);
-            this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.dataViewUI1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label2);
@@ -375,8 +388,11 @@
             // 
             this.groupBox3.Controls.Add(this.radioButton4);
             this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.button15);
             this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.button14);
             this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.button13);
             this.groupBox3.Location = new System.Drawing.Point(352, 30);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 98);
@@ -430,7 +446,7 @@
             // 
             this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button15.Location = new System.Drawing.Point(494, 217);
+            this.button15.Location = new System.Drawing.Point(148, 56);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(65, 30);
             this.button15.TabIndex = 29;
@@ -442,7 +458,7 @@
             // 
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button14.Location = new System.Drawing.Point(423, 217);
+            this.button14.Location = new System.Drawing.Point(77, 56);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(65, 30);
             this.button14.TabIndex = 28;
@@ -454,7 +470,7 @@
             // 
             this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button13.Location = new System.Drawing.Point(352, 217);
+            this.button13.Location = new System.Drawing.Point(6, 56);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(65, 30);
             this.button13.TabIndex = 27;
@@ -508,10 +524,10 @@
             // 
             // dataViewUI1
             // 
-            this.dataViewUI1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataViewUI1.Location = new System.Drawing.Point(0, 177);
+            this.dataViewUI1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataViewUI1.Location = new System.Drawing.Point(3, 3);
             this.dataViewUI1.Name = "dataViewUI1";
-            this.dataViewUI1.Size = new System.Drawing.Size(639, 442);
+            this.dataViewUI1.Size = new System.Drawing.Size(625, 410);
             this.dataViewUI1.TabIndex = 22;
             // 
             // label4
@@ -626,16 +642,37 @@
             this.tabPage7.Text = "模组位置调试";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // tabControl3
             // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button16.Location = new System.Drawing.Point(225, 27);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(105, 50);
-            this.button16.TabIndex = 19;
-            this.button16.Text = "全流程稳定性";
-            this.button16.UseVisualStyleBackColor = false;
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl3.Location = new System.Drawing.Point(0, 177);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(639, 442);
+            this.tabControl3.TabIndex = 32;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.dataViewUI1);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(631, 416);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "测量数据";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(631, 416);
+            this.tabPage9.TabIndex = 1;
+            this.tabPage9.Text = "CAD画面";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // NeedleMainUI
             // 
@@ -660,6 +697,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -715,5 +754,8 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPage9;
     }
 }

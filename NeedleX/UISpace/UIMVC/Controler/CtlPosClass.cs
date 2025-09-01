@@ -16,6 +16,7 @@ namespace NeedleX.UISpace.UIMVC.Controler
 {
     public class CtlPosClass
     {
+        JetEazy.UISpace.DxfViewer dxfViewer;
         public event EventHandler<ProcessEventArgs> OnMessage;
 
         PosUI posUI;
@@ -26,6 +27,7 @@ namespace NeedleX.UISpace.UIMVC.Controler
         Button btnGO;
         Button btnRelationGo;
         Button btnToEyes;
+        Button btnDxfAddCircle;
 
         DataGridView DGVIEW;
 
@@ -39,10 +41,11 @@ namespace NeedleX.UISpace.UIMVC.Controler
             get { return posUI.chkOpenZGo.Checked; }
         }
 
-        public CtlPosClass(PosUI ePos)
+        public CtlPosClass(PosUI ePos, JetEazy.UISpace.DxfViewer eDxfViewer)
         {
             this.posUI = ePos;
             InitialInternal();
+            this.dxfViewer = eDxfViewer;
         }
         public void Init(NeedleMachineClass eMACHINE,string ePOS,string eToRelationMicroPos,string eToRelationEyesPos)
         {
@@ -86,6 +89,7 @@ namespace NeedleX.UISpace.UIMVC.Controler
             DGVIEW = this.posUI.dataGridView1;
             btnRelationGo = this.posUI.button1;
             btnToEyes = this.posUI.button2;
+            btnDxfAddCircle = this.posUI.button3;
 
             btnADD.Click += BtnADD_Click;
             btnDEL.Click += BtnDEL_Click;
@@ -93,7 +97,19 @@ namespace NeedleX.UISpace.UIMVC.Controler
             btnGO.Click += BtnGO_Click;
             btnRelationGo.Click += BtnRelationGo_Click;
             btnToEyes.Click += BtnToEyes_Click;
+            btnDxfAddCircle.Click += BtnDxfAddCircle_Click;
 
+        }
+
+        private void BtnDxfAddCircle_Click(object sender, EventArgs e)
+        {
+            foreach (PointF pt in dxfViewer.GetSelectObject())
+            {
+                int index = this.DGVIEW.Rows.Add();
+                this.DGVIEW.Rows[index].Cells[0].Value = pt.X;
+                this.DGVIEW.Rows[index].Cells[1].Value = pt.Y;
+                this.DGVIEW.Rows[index].Cells[2].Value = 0;
+            }
         }
 
         private void BtnToEyes_Click(object sender, EventArgs e)
@@ -263,16 +279,22 @@ namespace NeedleX.UISpace.UIMVC.Controler
             if (rowindex == -1)
                 return;
 
-            string onStrMsg = "删除 表第 " + rowindex + " 行？";
-            string offStrMsg = "删除 表第 " + rowindex + " 行？";
-            string msg = (true ? offStrMsg : onStrMsg);
+            //string onStrMsg = "删除 表第 " + rowindex + " 行？";
+            //string offStrMsg = "删除 表第 " + rowindex + " 行？";
+            //string msg = (true ? offStrMsg : onStrMsg);
 
-            if (VsMSG.Instance.Question(msg) != DialogResult.OK)
+            //if (VsMSG.Instance.Question(msg) != DialogResult.OK)
+            //{
+            //    return;
+            //}
+
+            //DGVIEW.Rows.RemoveAt(rowindex);
+
+            DataGridViewSelectedRowCollection rowsCollection = DGVIEW.SelectedRows;
+            for (int i = 0; i < rowsCollection.Count; i++)
             {
-                return;
+                DGVIEW.Rows.RemoveAt(rowsCollection[i].Index);
             }
-
-            DGVIEW.Rows.RemoveAt(rowindex);
         }
 
         private void BtnADD_Click(object sender, EventArgs e)

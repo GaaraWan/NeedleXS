@@ -695,7 +695,7 @@ namespace JetEazy.ControlSpace
 
             if (m_ptr_wnd != IntPtr.Zero)
                 DVPCamera.dvpDrawPicture(ref refFrame, pBuffer, m_ptr_wnd, (IntPtr)0, (IntPtr)0);
-
+            
             CollectList.Add(stopwatch.ElapsedMilliseconds);
             stopwatch.Restart();
 

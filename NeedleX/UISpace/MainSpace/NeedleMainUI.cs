@@ -83,18 +83,22 @@ namespace NeedleX.UISpace.MainSpace
                 if (radioButton1.Checked)
                 {
                     ret = 0;
+                    DS1.IsShowHander = false;
                 }
                 else if (radioButton2.Checked)
                 {
                     ret = 1;
+                    DS1.IsShowHander = false;
                 }
                 else if (radioButton3.Checked)
                 {
                     ret = 2;
+                    DS1.IsShowHander = true;
                 }
                 else if (radioButton4.Checked)
                 {
                     ret = -1;
+                    DS1.IsShowHander = false;
                 }
 
                 return ret;
@@ -250,7 +254,7 @@ namespace NeedleX.UISpace.MainSpace
             resultxyz1.X = resultxyz.X - relationxyz1.X;
             resultxyz1.Y = resultxyz.Y - relationxyz1.Y;
             resultxyz1.Z = resultxyz.Z - relationxyz1.Z;
-
+            radioButton4.Checked = true;
             MACHINE.GoPosition(resultxyz1.ToString(), true);
         }
 
@@ -275,8 +279,15 @@ namespace NeedleX.UISpace.MainSpace
             resultxyz.X = basexyz.X - relationxyz.X;
             resultxyz.Y = basexyz.Y - relationxyz.Y;
             resultxyz.Z = basexyz.Z - relationxyz.Z;
-
+            radioButton3.Checked = true;
             MACHINE.GoPosition(resultxyz.ToString(), true);
+
+            //移到调整位置后 显示的正确的位置
+            NeedleXYZ org = new NeedleXYZ(xRowEvent.Org.ToString());
+            PointF ptOffset = new PointF((float)(basexyz.X - org.X), (float)(basexyz.Y - org.Y));
+            SetAdjustScreen(ptOffset);
+
+
         }
 
         private void BtnToAbs_Click(object sender, EventArgs e)
@@ -293,6 +304,7 @@ namespace NeedleX.UISpace.MainSpace
             {
                 return;
             }
+            radioButton2.Checked = true;
             MACHINE.GoPosition(xRowEvent.Adjust.ToString(), true);
         }
 
@@ -793,6 +805,18 @@ namespace NeedleX.UISpace.MainSpace
         }
 
 
+        private void SetAdjustScreen(PointF ePt)
+        {
+            if (CamSelectIndex < 0)
+            {
+                return;
+            }
+            int index = CamSelectIndex;
+            DS1.SetControlPara(RecipeNeedleClass.Instance.camparaClassArray[index].ToString());
+            //DS1.IsShowHander = true;
+            DS1.ptHanderScreen = ePt;
+        }
+
         private void AlarmUITick()
         {
 
@@ -1030,11 +1054,12 @@ namespace NeedleX.UISpace.MainSpace
 
                     if (CamSelectIndex < 0)
                     {
-                        Thread.Sleep(2);
+                        Thread.Sleep(10);
                         continue;
                     }
                        
                     int index = CamSelectIndex;
+                    
                     //if (IsNeedToChange)
                     //    return;
                     using (Bitmap bmp = snapshot_image(GetCamera(index)))
@@ -1063,6 +1088,8 @@ namespace NeedleX.UISpace.MainSpace
                     //        _LOG(phase.Name, "補償 = 0");
                     //    break;
                     //}
+
+                    Thread.Sleep(5);
                 }
                 catch (Exception ex)
                 {

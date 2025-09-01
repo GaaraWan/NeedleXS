@@ -61,6 +61,10 @@ namespace JzDisplay.OPSpace
 
         public DisplayTypeEnum DISPLAYTYPE = DisplayTypeEnum.SHOW;
         ControlClass MyControlPara = new ControlClass();
+
+        public PointF ptHanderScreen = new PointF();
+        public bool IsShowHander = false;
+
         public void SetControlPara(string eStr)
         {
             if (!string.IsNullOrEmpty(eStr))
@@ -1701,6 +1705,14 @@ namespace JzDisplay.OPSpace
             //grfx.DrawRectangle(m_DsRectCenter, dsRectCenter1);
             grfx.DrawLine(new Pen(Color.Green, 2), new PointF(0, ptMouse_Move.Y), new PointF(picDisplay.Width, ptMouse_Move.Y));
             grfx.DrawLine(new Pen(Color.Green, 2), new PointF(ptMouse_Move.X, 0), new PointF(ptMouse_Move.X, picDisplay.Height));
+
+            //显示需要调整到的位置
+            if (IsShowHander)
+            {
+                PointF ptDrawCircleReal = new PointF((float)(ptHanderScreen.X / MyControlPara.Resolution), (float)(ptHanderScreen.Y / MyControlPara.Resolution));
+                PointF ptDrawCircle = new PointF(dsCenter.X - ptDrawCircleReal.X, dsCenter.Y - ptDrawCircleReal.Y);
+                grfx.DrawArc(new Pen(Color.Lime, 3), ptDrawCircle.X, ptDrawCircle.Y, 20, 20, 0, 360);
+            }
 
 
             if (IsLeftMouseDown)

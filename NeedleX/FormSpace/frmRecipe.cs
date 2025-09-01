@@ -98,8 +98,8 @@ namespace NeedleX.FormSpace
             init_Display();
             update_Display();
 
-            ctlPosClasses[0] = new CtlPosClass(posUI1);
-            ctlPosClasses[1] = new CtlPosClass(posUI2);
+            ctlPosClasses[0] = new CtlPosClass(posUI1, dxfViewer1);
+            ctlPosClasses[1] = new CtlPosClass(posUI2, dxfViewer1);
 
             btnOK = button1;
             btnCancel = button2;

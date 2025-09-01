@@ -21,7 +21,18 @@ namespace JzDisplay.UISpace
         Label lblTestInformation;
 
         JzTimes myJzTimes = new JzTimes();
-        
+
+        public PointF ptHanderScreen
+        {
+            get { return OPDISP.ptHanderScreen; }
+            set { OPDISP.ptHanderScreen = value; }
+        }
+        public bool IsShowHander
+        {
+            get { return OPDISP.IsShowHander; }
+            set { OPDISP.IsShowHander = value; }
+        }
+
         OPDisplay OPDISP;
         public bool ISMOUSEDOWN
         {

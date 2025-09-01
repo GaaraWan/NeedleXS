@@ -79,6 +79,9 @@
     <Reference Include="MVSDK">
       <HintPath>..\DLLS\MVSDK.dll</HintPath>
     </Reference>
+    <Reference Include="netDxf">
+      <HintPath>..\DLLS\netDxf.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLLS\Newtonsoft.Json.dll</HintPath>
@@ -178,6 +181,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\DxfViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\DxfViewer.Designer.cs">
+      <DependentUpon>DxfViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UISpace\DxfViewerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UISpace\DxfViewerControl.Designer.cs">
+      <DependentUpon>DxfViewerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UISpace\EssUI.cs">
       <SubType>UserControl</SubType>

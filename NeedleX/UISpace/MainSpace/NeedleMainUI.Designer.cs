@@ -53,19 +53,21 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button15 = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button14 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.dataViewUI1 = new NeedleX.UISpace.DataViewUI();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,12 +76,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.DS1 = new JzDisplay.UISpace.DispUI();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.DS1 = new JzDisplay.UISpace.DispUI();
+            this.dataViewUI1 = new NeedleX.UISpace.DataViewUI();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -90,9 +90,9 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -384,6 +384,38 @@
             this.panel1.Size = new System.Drawing.Size(639, 619);
             this.panel1.TabIndex = 18;
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl3.Location = new System.Drawing.Point(0, 177);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(639, 442);
+            this.tabControl3.TabIndex = 32;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.dataViewUI1);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(631, 416);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "测量数据";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(631, 416);
+            this.tabPage9.TabIndex = 1;
+            this.tabPage9.Text = "图纸画面";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.radioButton4);
@@ -422,26 +454,6 @@
             this.radioButton3.Text = "显微";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
-            // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.Location = new System.Drawing.Point(61, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(50, 30);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.Text = "特征";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.Location = new System.Drawing.Point(6, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 30);
-            this.radioButton1.TabIndex = 30;
-            this.radioButton1.Text = "全域";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -454,6 +466,16 @@
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Visible = false;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.Location = new System.Drawing.Point(61, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(50, 30);
+            this.radioButton2.TabIndex = 31;
+            this.radioButton2.Text = "特征";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -465,6 +487,16 @@
             this.button14.Text = "特征";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Visible = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.Location = new System.Drawing.Point(6, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(50, 30);
+            this.radioButton1.TabIndex = 30;
+            this.radioButton1.Text = "全域";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // button13
             // 
@@ -521,14 +553,6 @@
             this.button11.TabIndex = 23;
             this.button11.Text = "To特征";
             this.button11.UseVisualStyleBackColor = false;
-            // 
-            // dataViewUI1
-            // 
-            this.dataViewUI1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataViewUI1.Location = new System.Drawing.Point(3, 3);
-            this.dataViewUI1.Name = "dataViewUI1";
-            this.dataViewUI1.Size = new System.Drawing.Size(625, 410);
-            this.dataViewUI1.TabIndex = 22;
             // 
             // label4
             // 
@@ -615,14 +639,6 @@
             this.progressBar1.Size = new System.Drawing.Size(633, 23);
             this.progressBar1.TabIndex = 0;
             // 
-            // DS1
-            // 
-            this.DS1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DS1.Location = new System.Drawing.Point(2, 3);
-            this.DS1.Name = "DS1";
-            this.DS1.Size = new System.Drawing.Size(550, 619);
-            this.DS1.TabIndex = 17;
-            // 
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -642,37 +658,21 @@
             this.tabPage7.Text = "模组位置调试";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // tabControl3
+            // DS1
             // 
-            this.tabControl3.Controls.Add(this.tabPage8);
-            this.tabControl3.Controls.Add(this.tabPage9);
-            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl3.Location = new System.Drawing.Point(0, 177);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(639, 442);
-            this.tabControl3.TabIndex = 32;
+            this.DS1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DS1.Location = new System.Drawing.Point(2, 3);
+            this.DS1.Name = "DS1";
+            this.DS1.Size = new System.Drawing.Size(550, 619);
+            this.DS1.TabIndex = 17;
             // 
-            // tabPage8
+            // dataViewUI1
             // 
-            this.tabPage8.Controls.Add(this.dataViewUI1);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(631, 416);
-            this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "测量数据";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(631, 416);
-            this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "CAD画面";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.dataViewUI1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataViewUI1.Location = new System.Drawing.Point(3, 3);
+            this.dataViewUI1.Name = "dataViewUI1";
+            this.dataViewUI1.Size = new System.Drawing.Size(625, 410);
+            this.dataViewUI1.TabIndex = 22;
             // 
             // NeedleMainUI
             // 
@@ -696,9 +696,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

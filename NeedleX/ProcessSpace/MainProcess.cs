@@ -79,25 +79,30 @@ namespace NeedleX.ProcessSpace
                         MyAlignCalibration.Reset();
                         Traveller106.Universal.DEBUGRESULTPATH = $"D:\\JETEAZY\\{Traveller106.Universal.VEROPT}\\DEBUG\\Main_{JzTimes.DateTimeSerialString}";
 
-                        switch (alignFuntion)
+                        if (m_CmdCount < 4)
                         {
-                            case Eazy_Project_III.AlignFuntion.Vector:
-                                if (m_CmdCount < 2)
-                                {
-                                    Process.NextDuriation = 500;
-                                    Process.ID = 9997;
-                                }
-                                break;
-                            case Eazy_Project_III.AlignFuntion.Calibration:
-                                if (m_CmdCount < 4)
-                                {
-                                    Process.NextDuriation = 500;
-                                    Process.ID = 9998;
-                                }
-                                break;
+                            Process.NextDuriation = 500;
+                            Process.ID = 9998;
                         }
+                        else
+                        {
+                            switch (alignFuntion)
+                            {
+                                case Eazy_Project_III.AlignFuntion.Vector:
+                                    m_CmdCount = 2;
+                                    string k0 = ModelPositioningClass.Instance.ModelPosList[2];
+                                    string k1 = ModelPositioningClass.Instance.ModelPosList[3];
 
-                        
+                                    MyAlignCalibration.Set(k0, k1);
+
+                                    break;
+                                case Eazy_Project_III.AlignFuntion.Calibration:
+
+                                    break;
+                            }
+
+                            MyAlignCalibration.xAlignFuntion = alignFuntion;
+                        }
 
                         break;
 
@@ -258,13 +263,30 @@ namespace NeedleX.ProcessSpace
                                 Process.ID = 25;
 
                                 xRowEventArgs.Index = m_CmdIndex;
-                                xRowEventArgs.Org = new NeedleXYZ(m_CurrentXYZ.ToString());
-                                xRowEventArgs.Adjust = new NeedleXYZ(m_AdjustXYZ.ToString());
-                                xRowEventArgs.Adjust.X = FocusProcess.Instance.PosCompleteX;
-                                xRowEventArgs.Adjust.Y = FocusProcess.Instance.PosCompleteY;
-                                xRowEventArgs.Adjust.Z = FocusProcess.Instance.PosComplete;
-                                xRowEventArgs.ElapsedTime = m_Stopwatch.ElapsedMilliseconds / 1000.0;
 
+                                switch (alignFuntion)
+                                {
+                                    case Eazy_Project_III.AlignFuntion.Vector:
+
+                                        xRowEventArgs.Org = new NeedleXYZ(m_AdjustXYZ.ToString());
+                                        xRowEventArgs.Adjust = new NeedleXYZ(m_AdjustXYZ.ToString());
+                                        xRowEventArgs.Adjust.X = FocusProcess.Instance.PosCompleteX;
+                                        xRowEventArgs.Adjust.Y = FocusProcess.Instance.PosCompleteY;
+                                        xRowEventArgs.Adjust.Z = FocusProcess.Instance.PosComplete;
+                                        xRowEventArgs.ElapsedTime = m_Stopwatch.ElapsedMilliseconds / 1000.0;
+
+                                        break;
+                                    case Eazy_Project_III.AlignFuntion.Calibration:
+
+                                        xRowEventArgs.Org = new NeedleXYZ(m_CurrentXYZ.ToString());
+                                        xRowEventArgs.Adjust = new NeedleXYZ(m_AdjustXYZ.ToString());
+                                        xRowEventArgs.Adjust.X = FocusProcess.Instance.PosCompleteX;
+                                        xRowEventArgs.Adjust.Y = FocusProcess.Instance.PosCompleteY;
+                                        xRowEventArgs.Adjust.Z = FocusProcess.Instance.PosComplete;
+                                        xRowEventArgs.ElapsedTime = m_Stopwatch.ElapsedMilliseconds / 1000.0;
+
+                                        break;
+                                }
                                 FireMessage(new ProcessEventArgs($"FocusCompleted.{m_CmdCount.ToString()}", xRowEventArgs));
                             }
                         }

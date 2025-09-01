@@ -67,6 +67,11 @@ namespace NeedleX.UISpace.CtrlSpace
             lblTestPoint.DoubleClick += LblTestPoint_DoubleClick;
             lblIO.Visible = false;
 
+            if (comboBox1.Items.Count > 0)
+                comboBox1.SelectedIndex = 0;
+            if (comboBox2.Items.Count > 0)
+                comboBox2.SelectedIndex = 0;
+
             myTime = new JzTimes();
             myTime.Cut();
 

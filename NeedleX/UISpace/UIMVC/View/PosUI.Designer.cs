@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkOpenZGo = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -38,14 +40,14 @@
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.chkOpenZGo = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.chkOpenZGo);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -58,6 +60,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 89);
             this.panel1.TabIndex = 1;
+            // 
+            // chkOpenZGo
+            // 
+            this.chkOpenZGo.AutoSize = true;
+            this.chkOpenZGo.BackColor = System.Drawing.Color.Red;
+            this.chkOpenZGo.Location = new System.Drawing.Point(0, 67);
+            this.chkOpenZGo.Name = "chkOpenZGo";
+            this.chkOpenZGo.Size = new System.Drawing.Size(90, 16);
+            this.chkOpenZGo.TabIndex = 22;
+            this.chkOpenZGo.Text = "打开Z轴运动";
+            this.chkOpenZGo.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(393, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 30);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "To目镜";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -147,27 +171,16 @@
             this.Z.Name = "Z";
             this.Z.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // button2
+            // button3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(393, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 30);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "To目镜";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // chkOpenZGo
-            // 
-            this.chkOpenZGo.AutoSize = true;
-            this.chkOpenZGo.BackColor = System.Drawing.Color.Red;
-            this.chkOpenZGo.Location = new System.Drawing.Point(3, 53);
-            this.chkOpenZGo.Name = "chkOpenZGo";
-            this.chkOpenZGo.Size = new System.Drawing.Size(90, 16);
-            this.chkOpenZGo.TabIndex = 22;
-            this.chkOpenZGo.Text = "打开Z轴运动";
-            this.chkOpenZGo.UseVisualStyleBackColor = false;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(3, 31);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 30);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "D.Circle";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // PosUI
             // 
@@ -198,5 +211,6 @@
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.CheckBox chkOpenZGo;
+        public System.Windows.Forms.Button button3;
     }
 }

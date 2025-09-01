@@ -299,7 +299,7 @@ namespace NeedleX.UISpace
 
                 dataGridViewRow.Cells[7].Value = e.ElapsedTime.ToString("0.00");
 
-                //dataGridViewRow.DefaultCellStyle.BackColor = Color.White;
+                dataGridViewRow.DefaultCellStyle.BackColor = (e.IsPass ? Color.White : Color.Red);
 
                 this.DGV.Rows.Add(dataGridViewRow);
             }
@@ -502,6 +502,12 @@ namespace NeedleX.UISpace
         private NeedleXYZ needleXYZOrg = new NeedleXYZ();
         private NeedleXYZ needleXYZAdjust = new NeedleXYZ();
         private double elapsedTime = 0;
+        private double dTorance = 0.0001;
+        public double Torance
+        {
+            get { return dTorance; }
+            set { dTorance = value; }
+        }
         public int Index
         {
             get { return index; }
@@ -521,6 +527,15 @@ namespace NeedleX.UISpace
         {
             get { return elapsedTime; }
             set { elapsedTime = value; }
+        }
+        public bool IsPass
+        {
+            get
+            {
+                bool ret = false;
+                ret = Math.Abs(needleXYZOrg.X - needleXYZAdjust.X) <= dTorance && Math.Abs(needleXYZOrg.Y - needleXYZAdjust.Y) <= dTorance;
+                return ret;
+            }
         }
         public XRowEventArgs()
         {
